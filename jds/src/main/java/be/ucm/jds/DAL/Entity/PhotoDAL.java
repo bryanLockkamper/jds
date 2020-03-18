@@ -1,13 +1,13 @@
 package be.ucm.jds.DAL.Entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import be.ucm.jds.BL.Entity.Rencontre;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode
 @ToString
 @Setter
@@ -23,4 +23,7 @@ public class PhotoDAL {
 
     @ManyToMany
     private List<AdresseDAL> adresseList_photo;
+
+    @OneToOne
+    private RencontreDAL rencontre_photo;
 }

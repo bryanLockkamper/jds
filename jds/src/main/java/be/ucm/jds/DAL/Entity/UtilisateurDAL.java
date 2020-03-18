@@ -1,14 +1,17 @@
 package be.ucm.jds.DAL.Entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import be.ucm.jds.BL.Entity.Adresse;
+import be.ucm.jds.BL.Entity.Jeu;
+import be.ucm.jds.BL.Entity.Photo;
+import be.ucm.jds.BL.Entity.Rencontre;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 @ToString
 @Setter
@@ -47,4 +50,7 @@ public class UtilisateurDAL {
 
     @OneToOne
     private RencontreDAL rencontre_utilisateur;
+
+    public UtilisateurDAL(Long id, String pseudo, LocalDate date, String genre, List<JeuDAL> jeuPreferes, String nom, String prenom, String desc, String telephone, List<AdresseDAL> adresseList, PhotoDAL photo, List<RencontreDAL> rencontreList) {
+    }
 }

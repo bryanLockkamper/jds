@@ -1,14 +1,13 @@
 package be.ucm.jds.DAL.Entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode
 @ToString
 @Setter
@@ -26,6 +25,9 @@ public class RencontreDAL {
     private Integer tempDeJeu_rencontre;
     private Integer nbrParticipantLimite_rencontre;
     private String descr_rencontre;
+
+    @OneToOne
+    private PhotoDAL photo_rencontre;
 
     @OneToOne
     private AdresseDAL adresse_rencontre;

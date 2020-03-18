@@ -1,13 +1,13 @@
 package be.ucm.jds.DAL.Entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode
 @ToString
 @Setter
@@ -24,4 +24,11 @@ public class GenreDAL {
 
     @ManyToMany(mappedBy = "genreList_jeu")
     private List<JeuDAL> jeuList_genre;
+
+    public GenreDAL(Long id, String titre, String desc) {
+        this.id_genre = id;
+        this.titre_genre = titre;
+        this.description_jeu = desc;
+        this.jeuList_genre = new ArrayList<>();
+    }
 }

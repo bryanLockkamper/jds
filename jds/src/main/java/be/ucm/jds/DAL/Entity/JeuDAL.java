@@ -1,13 +1,13 @@
 package be.ucm.jds.DAL.Entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import be.ucm.jds.BL.Entity.Genre;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -39,4 +39,14 @@ public class JeuDAL {
     private List<UtilisateurDAL> utilisateurList_jeu;
 
 
+    public JeuDAL(Long id, String titre, String desc, int nbrJoueursMin, int nbrJoueursMax, List<GenreDAL> genreDAL, String maisonEdition, int ageMin) {
+        this.id_jeu = id;
+        this.titre_jeu = titre;
+        this.descr_jeu = desc;
+        this.nbrJoueurMin_jeu = nbrJoueursMin;
+        this.nbrJoueurMax_jeu = nbrJoueursMax;
+        this.maisonEdition_jeu = maisonEdition;
+        this.ageMin_jeu = ageMin;
+        this.genreList_jeu = genreDAL;
+    }
 }
