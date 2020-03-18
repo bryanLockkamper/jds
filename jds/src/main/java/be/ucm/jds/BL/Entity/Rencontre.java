@@ -16,11 +16,11 @@ public class Rencontre {
     private String titre;
     private LocalDate date;
     private int tempDeJeu;
-    private List<Jeu> jeuList;
-    private int nbrParticipantsLimite;
+    private Integer nbrParticipantsLimite;
     private Adresse adresse;
-    private List<Photo> photoList;
+    private Photo photo;
     private String desc;
     private Utilisateur utilisateurCreateur;
     private List<Utilisateur> utilisateursParticipants;
+    private List<Jeu> jeuList;
 }

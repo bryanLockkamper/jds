@@ -1,19 +1,19 @@
 package be.ucm.jds.DAL.Entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import be.ucm.jds.BL.Entity.Rencontre;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode
 @ToString
 @Setter
 @Getter
-@Entity
-public class Photo {
+@Entity(name = "Photo")
+public class PhotoDAL {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,5 +22,8 @@ public class Photo {
     private String lien_photo;
 
     @ManyToMany
-    private List<Adresse> adresseList_photo;
+    private List<AdresseDAL> adresseList_photo;
+
+    @OneToOne
+    private RencontreDAL rencontre_photo;
 }

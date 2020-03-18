@@ -1,19 +1,18 @@
 package be.ucm.jds.DAL.Entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 @ToString
 @Setter
 @Getter
-@Entity
-public class Adresse {
+@Entity(name = "Adresse")
+public class AdresseDAL {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,11 +24,11 @@ public class Adresse {
     private String ville_adresse;
 
     @ManyToMany
-    private List<Utilisateur> utilisateurList_adresse;
+    private List<UtilisateurDAL> utilisateurList_adresse;
 
     @ManyToMany(mappedBy = "adresseList_photo")
-    private List<Photo> photoList_adresse;
+    private List<PhotoDAL> photoList_adresse;
 
     @OneToOne
-    private Rencontre rencontre_adresse;
+    private RencontreDAL rencontre_adresse;
 }
