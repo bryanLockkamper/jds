@@ -33,7 +33,7 @@ public class Rencontre {
     @OneToOne
     private Utilisateur utilisateur_rencontre;
 
-    @ManyToOne
+    @ManyToMany
     private List<Utilisateur> utilisateurList_rencontre;
 
     @ManyToMany
