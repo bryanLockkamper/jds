@@ -13,8 +13,8 @@ import java.util.List;
 @ToString
 @Setter
 @Getter
-@Entity
-public class Utilisateur {
+@Entity(name = "Utilisateur")
+public class UtilisateurDAL {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_user;
@@ -34,17 +34,17 @@ public class Utilisateur {
     private String numTel_user;
 
     @OneToOne
-    private Photo photo_user;
+    private PhotoDAL photo_user;
 
     @ManyToMany(mappedBy = "utilisateurList_jeu")
-    private List<Jeu> jeuList_utilisateur;
+    private List<JeuDAL> jeuList_utilisateur;
 
     @ManyToMany(mappedBy = "utilisateurList_adresse")
-    private List<Adresse> adresseList_utilisateur;
+    private List<AdresseDAL> adresseList_utilisateur;
 
     @ManyToMany(mappedBy = "utilisateurList_rencontre")
-    private List<Rencontre> rencontreList_utilisateur;
+    private List<RencontreDAL> rencontreList_utilisateur;
 
     @OneToOne
-    private Rencontre rencontre_utilisateur;
+    private RencontreDAL rencontre_utilisateur;
 }

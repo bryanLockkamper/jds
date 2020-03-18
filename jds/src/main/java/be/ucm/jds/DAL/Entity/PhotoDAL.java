@@ -12,16 +12,15 @@ import java.util.List;
 @ToString
 @Setter
 @Getter
-@Entity
-public class Genre {
+@Entity(name = "Photo")
+public class PhotoDAL {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_genre;
+    private Long id_photo;
 
-    private String titre_genre;
-    private String description_jeu;
+    private String lien_photo;
 
-    @ManyToMany(mappedBy = "genreList_jeu")
-    private List<Jeu> jeuList_genre;
+    @ManyToMany
+    private List<AdresseDAL> adresseList_photo;
 }

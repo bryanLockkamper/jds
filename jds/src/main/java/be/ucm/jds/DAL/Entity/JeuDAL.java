@@ -12,8 +12,8 @@ import java.util.List;
 @Setter
 @ToString
 @EqualsAndHashCode
-@Entity
-public class Jeu {
+@Entity(name = "Jeu")
+public class JeuDAL {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_jeu;
@@ -30,13 +30,13 @@ public class Jeu {
     private Integer ageMin_jeu;
 
     @ManyToMany
-    private List<Genre> genreList_jeu;
+    private List<GenreDAL> genreList_jeu;
 
     @ManyToMany(mappedBy = "jeuList_rencontre")
-    private List<Rencontre> rencontreList_jeu;
+    private List<RencontreDAL> rencontreList_jeu;
 
     @ManyToMany
-    private List<Utilisateur> utilisateurList_jeu;
+    private List<UtilisateurDAL> utilisateurList_jeu;
 
 
 }

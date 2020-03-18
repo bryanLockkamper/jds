@@ -13,8 +13,8 @@ import java.util.List;
 @ToString
 @Setter
 @Getter
-@Entity
-public class Rencontre {
+@Entity(name = "Rencontre")
+public class RencontreDAL {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,14 +28,14 @@ public class Rencontre {
     private String descr_rencontre;
 
     @OneToOne
-    private Adresse adresse_rencontre;
+    private AdresseDAL adresse_rencontre;
 
     @OneToOne
-    private Utilisateur utilisateur_rencontre;
+    private UtilisateurDAL utilisateur_rencontre;
 
     @ManyToMany
-    private List<Utilisateur> utilisateurList_rencontre;
+    private List<UtilisateurDAL> utilisateurList_rencontre;
 
     @ManyToMany
-    private List<Jeu> jeuList_rencontre;
+    private List<JeuDAL> jeuList_rencontre;
 }
