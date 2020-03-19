@@ -18,9 +18,9 @@ public class Rencontre {
     private int tempDeJeu;
     private Integer nbrParticipantsLimite;
     private Adresse adresse;
-    private Photo photo;
     private String desc;
     private Utilisateur utilisateurCreateur;
     private List<Utilisateur> utilisateursParticipants;
+    private Photo photo;
     private List<Jeu> jeuList;
 }
