@@ -5,17 +5,24 @@ import be.ucm.jds.BL.Entity.Jeu;
 import be.ucm.jds.DAL.Entity.GenreDAL;
 import be.ucm.jds.DAL.Entity.JeuDAL;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class JeuMapperDAL {
 
     private Jeu jeu;
     private JeuDAL jeuDAL;
 
-    @Autowired
+
     private GenreMapperDAL genreMapperDAL;
+
+    @Autowired
+    public JeuMapperDAL(GenreMapperDAL genreMapperDAL) {
+        this.genreMapperDAL = genreMapperDAL;
+    }
 
     public Jeu jeuDAL_To_Jeu (JeuDAL jeuDAL){
         this.jeuDAL = jeuDAL;
@@ -38,25 +45,24 @@ public class JeuMapperDAL {
         return this.jeu;
     }
 
-    public JeuDAL jeu_To_JeuDAL (Jeu jeu){
-        this.jeu = jeu;
+    public static JeuDAL jeu_To_JeuDAL (Jeu jeu){
 
         List<GenreDAL> genreDALList = new ArrayList<>();
 
-        for (Genre g : this.jeu.getGenre()) {
-            genreDALList.add(genreMapperDAL.genre_To_GenreDAL(g));
+        for (Genre g : jeu.getGenre()) {
+            genreDALList.add(GenreMapperDAL.genre_To_GenreDAL(g));
         }
 
-        this.jeuDAL = new JeuDAL(this.jeu.getId(),
-                this.jeu.getTitre(),
-                this.jeu.getDesc(),
-                this.jeu.getNbrJoueursMin(),
-                this.jeu.getNbrJoueursMax(),
+        JeuDAL jeuDAL = new JeuDAL(jeu.getId(),
+                jeu.getTitre(),
+                jeu.getDesc(),
+                jeu.getNbrJoueursMin(),
+                jeu.getNbrJoueursMax(),
                 genreDALList,
-                this.jeu.getMaisonEdition(),
-                this.jeu.getAgeMin());
+                jeu.getMaisonEdition(),
+                jeu.getAgeMin());
 
-        return this.jeuDAL;
+        return jeuDAL;
     }
 
 }

@@ -3,23 +3,33 @@ package be.ucm.jds.DAL.mappers;
 import be.ucm.jds.BL.Entity.*;
 import be.ucm.jds.DAL.Entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class UserMapperDAL {
 
     private Utilisateur utilisateur;
     private UtilisateurDAL utilisateurDAL;
 
-    @Autowired
+
     private JeuMapperDAL jeuMapperDAL;
-    @Autowired
+
     private AdresseMapperDAL adresseMapperDAL;
-    @Autowired
+
     private PhotoMapperDAL photoMapperDAL;
+
+    private RencontreMapperOfUserDAL rencontreMapperDAL;
+
     @Autowired
-    private RencontreMapperDAL rencontreMapperDAL;
+    public UserMapperDAL(JeuMapperDAL jeuMapperDAL, AdresseMapperDAL adresseMapperDAL, PhotoMapperDAL photoMapperDAL, RencontreMapperOfUserDAL rencontreMapperDAL) {
+        this.jeuMapperDAL = jeuMapperDAL;
+        this.adresseMapperDAL = adresseMapperDAL;
+        this.photoMapperDAL = photoMapperDAL;
+        this.rencontreMapperDAL = rencontreMapperDAL;
+    }
 
     public Utilisateur utilisateurDal_To_Utilisateur(UtilisateurDAL utilisateurDAL) {
 

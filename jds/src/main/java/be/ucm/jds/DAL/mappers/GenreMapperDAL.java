@@ -2,7 +2,9 @@ package be.ucm.jds.DAL.mappers;
 
 import be.ucm.jds.BL.Entity.Genre;
 import be.ucm.jds.DAL.Entity.GenreDAL;
+import org.springframework.stereotype.Service;
 
+@Service
 public class GenreMapperDAL {
 
     private Genre genre;
@@ -19,14 +21,12 @@ public class GenreMapperDAL {
         return this.genre;
     }
 
-    public GenreDAL genre_To_GenreDAL(Genre genre){
+    public static GenreDAL genre_To_GenreDAL(Genre genre){
 
-        this.genre = genre;
+        GenreDAL genreDAL = new GenreDAL(genre.getId(),
+                genre.getTitre(),
+                genre.getDesc());
 
-        this.genreDAL = new GenreDAL(this.genre.getId(),
-                this.genre.getTitre(),
-                this.genre.getDesc());
-
-        return this.genreDAL;
+        return genreDAL;
     }
 }

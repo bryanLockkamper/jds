@@ -9,18 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class RencontreMapperDAL {
+public class RencontreMapperOfUserDAL {
 
     private Rencontre rencontre;
     private RencontreDAL rencontreDAL;
 
-    private UserMapperDAL userMapperDAL;
-
     private JeuMapperDAL jeuMapperDAL;
 
     @Autowired
-    public RencontreMapperDAL(UserMapperDAL userMapperDAL, JeuMapperDAL jeuMapperDAL) {
-        this.userMapperDAL = userMapperDAL;
+    public RencontreMapperOfUserDAL(JeuMapperDAL jeuMapperDAL) {
         this.jeuMapperDAL = jeuMapperDAL;
     }
 
@@ -33,15 +30,6 @@ public class RencontreMapperDAL {
         Utilisateur utilisateur = new Utilisateur();
 
         List<Utilisateur> utilisateurList = new ArrayList<>();
-        List<Jeu> jeuList = new ArrayList<>();
-
-        for (UtilisateurDAL u : this.rencontreDAL.getUtilisateurList()) {
-            utilisateurList.add(userMapperDAL.utilisateurDal_To_Utilisateur(u));
-        }
-
-        for (JeuDAL j : this.rencontreDAL.getJeuList()) {
-            jeuList.add(jeuMapperDAL.jeuDAL_To_Jeu(j));
-        }
 
         this.rencontre = new Rencontre(this.rencontreDAL.getId(),
                         this.rencontreDAL.getTitre(),
@@ -53,7 +41,7 @@ public class RencontreMapperDAL {
                 utilisateur,
                 utilisateurList,
                 photo,
-                jeuList);
+                null);
 
         return rencontre;
     }
@@ -67,15 +55,6 @@ public class RencontreMapperDAL {
         UtilisateurDAL utilisateur = new UtilisateurDAL();
 
         List<UtilisateurDAL> utilisateurList = new ArrayList<>();
-        List<JeuDAL> jeuList = new ArrayList<>();
-
-        for (Utilisateur u : this.rencontre.getUtilisateursParticipants()) {
-            utilisateurList.add(userMapperDAL.Utilisateur_To_UtilisateurDAL(u));
-        }
-
-        for (Jeu j : this.rencontre.getJeuList()) {
-            jeuList.add(jeuMapperDAL.jeu_To_JeuDAL(j));
-        }
 
         this.rencontreDAL = new RencontreDAL(this.rencontre.getId(),
                 this.rencontre.getTitre(),
@@ -87,7 +66,7 @@ public class RencontreMapperDAL {
                 adresse,
                 utilisateur,
                 utilisateurList,
-                jeuList);
+                null);
 
         return this.rencontreDAL;
     }

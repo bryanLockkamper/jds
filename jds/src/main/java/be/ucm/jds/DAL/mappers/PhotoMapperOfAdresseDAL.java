@@ -12,31 +12,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class PhotoMapperDAL {
+public class PhotoMapperOfAdresseDAL {
 
     private Photo photo;
     private PhotoDAL photoDAL;
-
-    private AdresseMapperDAL adresseMapperDAL;
-
-    @Autowired
-    public PhotoMapperDAL(AdresseMapperDAL adresseMapperDAL) {
-        this.adresseMapperDAL = adresseMapperDAL;
-    }
 
     public Photo photoDAL_To_Photo(PhotoDAL photoDAL){
 
         this.photoDAL = photoDAL;
 
-        List<Adresse> adresseList = new ArrayList<>();
-
-        for (AdresseDAL a : this.photoDAL.getAdresseList()) {
-            adresseList.add(adresseMapperDAL.adresseDAL_To_Adresse(a));
-        }
-
         this.photo = new Photo(this.photoDAL.getId(),
                 this.photoDAL.getLien(),
-                adresseList
+                null
                 );
 
         return this.photo;
@@ -48,15 +35,9 @@ public class PhotoMapperDAL {
 
         RencontreDAL rencontreDAL = new RencontreDAL();
 
-        List<AdresseDAL> adresseDALList = new ArrayList<>();
-
-        for (Adresse a : this.photo.getAdresseList()) {
-            adresseDALList.add(adresseMapperDAL.adresse_To_AdresseDAL(a));
-        }
-
         this.photoDAL = new PhotoDAL(this.photo.getId(),
                 this.photo.getLien(),
-                adresseDALList,
+                null,
                 rencontreDAL);
 
         return this.photoDAL;

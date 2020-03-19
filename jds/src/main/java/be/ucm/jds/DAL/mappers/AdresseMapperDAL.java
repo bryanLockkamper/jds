@@ -7,17 +7,23 @@ import be.ucm.jds.DAL.Entity.PhotoDAL;
 import be.ucm.jds.DAL.Entity.RencontreDAL;
 import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class AdresseMapperDAL {
 
     private Adresse adresse;
     private AdresseDAL adresseDAL;
 
+    private PhotoMapperOfAdresseDAL photoMapperDAL;
+
     @Autowired
-    private PhotoMapperDAL photoMapperDAL;
+    public AdresseMapperDAL(PhotoMapperOfAdresseDAL photoMapperDAL) {
+        this.photoMapperDAL = photoMapperDAL;
+    }
 
     public Adresse adresseDAL_To_Adresse(AdresseDAL adresseDAL) {
 
