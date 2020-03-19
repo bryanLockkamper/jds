@@ -13,15 +13,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class AdresseMapperDAL {
+public class AdresseMapperOfPhotoDAL {
 
     private Adresse adresse;
     private AdresseDAL adresseDAL;
 
-    private PhotoMapperDAL photoMapperDAL;
+    private PhotoMapperOfAdresseDAL photoMapperDAL;
 
     @Autowired
-    public AdresseMapperDAL(PhotoMapperDAL photoMapperDAL) {
+    public AdresseMapperOfPhotoDAL(PhotoMapperOfAdresseDAL photoMapperDAL) {
         this.photoMapperDAL = photoMapperDAL;
     }
 

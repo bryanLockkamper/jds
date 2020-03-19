@@ -35,7 +35,7 @@ public class RencontreMapperDAL {
         List<Utilisateur> utilisateurList = new ArrayList<>();
         List<Jeu> jeuList = new ArrayList<>();
 
-        for (UtilisateurDAL u : this.rencontreDAL.getUtilisateurList()) {
+        for (UtilisateurDAL u : this.rencontreDAL.getUtilisateurAffList()) {
             utilisateurList.add(userMapperDAL.utilisateurDal_To_Utilisateur(u));
         }
 
