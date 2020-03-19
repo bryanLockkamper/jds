@@ -55,15 +55,15 @@ public class UtilisateurDAOimpl {
         return utilisateurDAO.findByNumTel(numTel);
     }
 
-    /*public List<UtilisateurDAL> findByJeuId(Long jeuId){
-        return utilisateurDAO.findByJeuId(jeuId);
+    public List<UtilisateurDAL> findByJeuId(Long jeuId){
+        return utilisateurDAO.findByJeuListId(jeuId);
     }
 
     public List<UtilisateurDAL> findByRencontreAffId(Long rencontreId){
-        return utilisateurDAO.findByRencontreAffId(rencontreId);
+        return utilisateurDAO.findByrencontreAffListId(rencontreId);
     }
 
     public Optional<UtilisateurDAL> findByRencontreCreaId(Long rencontreId){
-        return utilisateurDAO.findByRencontreCreaId(rencontreId);
-    }*/
+        return utilisateurDAO.findByRencontreCreaListId(rencontreId);
+    }
 }
