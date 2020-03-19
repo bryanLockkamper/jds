@@ -1,27 +1,26 @@
 package be.ucm.jds.DAL.DAO.Interface;
 
-import be.ucm.jds.DAL.Entity.Genre;
-import be.ucm.jds.DAL.Entity.Jeu;
+import be.ucm.jds.DAL.Entity.JeuDAL;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface JeuDAO extends JpaRepository<Jeu, Long> {
+public interface JeuDAO extends JpaRepository<JeuDAL, Long> {
 
-    Optional<Jeu> findByTitre(String titre);
+    Optional<JeuDAL> findByTitre(String titre);
 
-    List<Jeu> findByNbrJoueurMin(Integer nbr);
+    List<JeuDAL> findByNbrJoueurMin(Integer nbr);
 
-    List<Jeu> findByNbrJoueurMax(Integer nbr);
+    List<JeuDAL> findByNbrJoueurMax(Integer nbr);
 
-    List<Jeu> findByNbrJoueurMinAndMax(Integer nbrMin,Integer nbrMax);
+    List<JeuDAL> findByNbrJoueurMinAndMax(Integer nbrMin,Integer nbrMax);
 
-    List<Jeu> findByMaisonEdition(String maisonEdition);
+    List<JeuDAL> findByMaisonEdition(String maisonEdition);
 
-    List<Jeu> findByAgeMin(Integer ageMin);
+    List<JeuDAL> findByAgeMin(Integer ageMin);
 
-    List<Jeu> findByGenre(String genre);
+    List<JeuDAL> findByGenre(String genre);
 
-    List<Jeu> findByGenres(String... genre);
+    List<JeuDAL> findByGenres(String... genre);
 }
