@@ -55,7 +55,7 @@ public class UtilisateurDAOimpl {
         return utilisateurDAO.findByNumTel(numTel);
     }
 
-    public List<UtilisateurDAL> findByJeuId(Long jeuId){
+    /*public List<UtilisateurDAL> findByJeuId(Long jeuId){
         return utilisateurDAO.findByJeuId(jeuId);
     }
 
@@ -65,5 +65,5 @@ public class UtilisateurDAOimpl {
 
     public Optional<UtilisateurDAL> findByRencontreCreaId(Long rencontreId){
         return utilisateurDAO.findByRencontreCreaId(rencontreId);
-    }
+    }*/
 }

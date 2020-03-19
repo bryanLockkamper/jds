@@ -36,14 +36,14 @@ public class RencontreDAOimpl {
         }
     }
 
-    public Boolean deleteByIdUtilisateur(Long idUtilisateur){
+    /*public Boolean deleteByIdUtilisateur(Long idUtilisateur){
         try {
             rencontreDAO.deleteByIdUtilisateur(idUtilisateur);
             return true;
         }catch (Exception e){
             return false;
         }
-    }
+    }*/
 
     public List<RencontreDAL> findByTitre(String titre){
         return rencontreDAO.findByTitre(titre);
@@ -61,7 +61,7 @@ public class RencontreDAOimpl {
         return rencontreDAO.findByNbrParticipantLimite(nbrParticipantLimite);
     }
 
-    public List<RencontreDAL> findByUtilisateur(Long idUtilisateur){
+    /*public List<RencontreDAL> findByUtilisateur(Long idUtilisateur){
         return rencontreDAO.findByUtilisateur(idUtilisateur);
     }
 
@@ -71,6 +71,6 @@ public class RencontreDAOimpl {
 
     public List<RencontreDAL> findByJeu(Long idJeu){
         return rencontreDAO.findByJeu(idJeu);
-    }
+    }*/
 
 }
