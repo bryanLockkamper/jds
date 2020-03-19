@@ -19,6 +19,7 @@ public class GenreDAL {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String titre;
     private String description;
 
