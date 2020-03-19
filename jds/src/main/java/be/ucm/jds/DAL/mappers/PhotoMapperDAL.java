@@ -35,7 +35,6 @@ public class PhotoMapperDAL {
                 adresseMapperDAL.adresseDAL_To_Adresse(this.photoDAL.getAdresse()),
                 rencontreMapperDAL.rencontreDal_To_Rencontre(this.photoDAL.getRencontre()));
 
-        
         return this.photo;
     }
 
