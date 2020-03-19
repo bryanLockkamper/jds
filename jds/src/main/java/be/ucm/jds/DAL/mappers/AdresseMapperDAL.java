@@ -18,10 +18,10 @@ public class AdresseMapperDAL {
     private Adresse adresse;
     private AdresseDAL adresseDAL;
 
-    private PhotoMapperDAL photoMapperDAL;
+    private PhotoMapperOfAdresseDAL photoMapperDAL;
 
     @Autowired
-    public AdresseMapperDAL(PhotoMapperDAL photoMapperDAL) {
+    public AdresseMapperDAL(PhotoMapperOfAdresseDAL photoMapperDAL) {
         this.photoMapperDAL = photoMapperDAL;
     }
 

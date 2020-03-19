@@ -14,19 +14,14 @@ public class UserMapperDAL {
     private Utilisateur utilisateur;
     private UtilisateurDAL utilisateurDAL;
 
-    private JeuMapperDAL jeuMapperDAL;
-
     private AdresseMapperDAL adresseMapperDAL;
 
-    private PhotoMapperDAL photoMapperDAL;
 
     private RencontreMapperOfUserDAL rencontreMapperDAL;
 
     @Autowired
-    public UserMapperDAL(JeuMapperDAL jeuMapperDAL, AdresseMapperDAL adresseMapperDAL, PhotoMapperDAL photoMapperDAL, RencontreMapperOfUserDAL rencontreMapperDAL) {
-        this.jeuMapperDAL = jeuMapperDAL;
+    public UserMapperDAL(AdresseMapperDAL adresseMapperDAL, RencontreMapperOfUserDAL rencontreMapperDAL) {
         this.adresseMapperDAL = adresseMapperDAL;
-        this.photoMapperDAL = photoMapperDAL;
         this.rencontreMapperDAL = rencontreMapperDAL;
     }
 
@@ -40,7 +35,7 @@ public class UserMapperDAL {
         List<Rencontre> rencontreList = new ArrayList<>();
 
         for (JeuDAL j : this.utilisateurDAL.getJeuList()) {
-            jeuList.add(jeuMapperDAL.jeuDAL_To_Jeu(j));
+            jeuList.add(JeuMapperDAL.jeuDAL_To_Jeu(j));
         }
 
         for (AdresseDAL a : this.utilisateurDAL.getAdresseList()) {
@@ -77,7 +72,7 @@ public class UserMapperDAL {
         List<RencontreDAL> rencontreList = new ArrayList<>();
 
         for (Jeu j : this.utilisateur.getJeuPreferes()) {
-            jeuList.add(jeuMapperDAL.jeu_To_JeuDAL(j));
+            jeuList.add(JeuMapperDAL.jeu_To_JeuDAL(j));
         }
 
         for (Adresse a : this.utilisateur.getAdresseList()) {
