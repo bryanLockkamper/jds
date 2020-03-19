@@ -18,11 +18,11 @@ public interface RencontreDAO extends JpaRepository<RencontreDAL, Long> {
 
     List<RencontreDAL> findByNbrParticipantLimite(Integer nbrParticipantLimite);
 
-    /*List<RencontreDAL> findByUtilisateurAffList(Long idUtilisateur);
+    List<RencontreDAL> findByUtilisateurAffList(Long utilisateurAffListId);
 
-    List<RencontreDAL> findByUtlisateurList(Long idUtilisateurParticipants);
+    List<RencontreDAL> findByUtilisateurCrea(Long idUtilisateurParticipants);
 
     List<RencontreDAL> findByJeuList(Long idJeu);
 
-    void deleteByIdAndUtilisateurAffList(Long idUtilisateur, );*/
+    void deleteByUtilisateurCrea(Long idUtilisateur);
 }
