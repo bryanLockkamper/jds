@@ -1,20 +1,23 @@
 package be.ucm.jds.DAL.Entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import be.ucm.jds.BL.Entity.Adresse;
+import be.ucm.jds.BL.Entity.Jeu;
+import be.ucm.jds.BL.Entity.Photo;
+import be.ucm.jds.BL.Entity.Rencontre;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 @ToString
 @Setter
 @Getter
-@Entity
-public class Utilisateur {
+@Entity(name = "Utilisateur")
+public class UtilisateurDAL {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_user;
@@ -34,17 +37,20 @@ public class Utilisateur {
     private String numTel_user;
 
     @OneToOne
-    private Photo photo_user;
+    private PhotoDAL photo_user;
 
     @ManyToMany(mappedBy = "utilisateurList_jeu")
-    private List<Jeu> jeuList_utilisateur;
+    private List<JeuDAL> jeuList_utilisateur;
 
     @ManyToMany(mappedBy = "utilisateurList_adresse")
-    private List<Adresse> adresseList_utilisateur;
+    private List<AdresseDAL> adresseList_utilisateur;
 
     @ManyToMany(mappedBy = "utilisateurList_rencontre")
-    private List<Rencontre> rencontreList_utilisateur;
+    private List<RencontreDAL> rencontreList_utilisateur;
 
     @OneToOne
-    private Rencontre rencontre_utilisateur;
+    private RencontreDAL rencontre_utilisateur;
+
+    public UtilisateurDAL(Long id, String pseudo, LocalDate date, String genre, List<JeuDAL> jeuPreferes, String nom, String prenom, String desc, String telephone, List<AdresseDAL> adresseList, PhotoDAL photo, List<RencontreDAL> rencontreList) {
+    }
 }
