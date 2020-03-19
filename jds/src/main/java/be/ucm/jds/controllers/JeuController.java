@@ -28,7 +28,8 @@ public class JeuController {
 
     @PostMapping("/modifierJeu")
     public void modifierJeu(@RequestBody Jeu jeu) {
-        jeuDAO.save(JeuMapperDAL.jeu_To_JeuDAL(jeu));
+        if (jeu.getId() != null)
+            jeuDAO.save(JeuMapperDAL.jeu_To_JeuDAL(jeu));
     }
 
     @PostMapping("/supprimerJeu")

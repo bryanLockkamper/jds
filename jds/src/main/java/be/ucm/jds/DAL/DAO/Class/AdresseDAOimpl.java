@@ -4,10 +4,12 @@ import be.ucm.jds.BL.Entity.Photo;
 import be.ucm.jds.DAL.DAO.Interface.AdresseDAO;
 import be.ucm.jds.DAL.Entity.AdresseDAL;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class AdresseDAOimpl {
 
     private AdresseDAO adresseDAO;

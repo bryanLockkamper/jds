@@ -3,10 +3,12 @@ package be.ucm.jds.DAL.DAO.Class;
 import be.ucm.jds.DAL.DAO.Interface.GenreDAO;
 import be.ucm.jds.DAL.Entity.GenreDAL;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class GenreDAOimpl {
 
     private GenreDAO genreDAO;
