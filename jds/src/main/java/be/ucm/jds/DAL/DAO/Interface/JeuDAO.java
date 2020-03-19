@@ -1,5 +1,6 @@
 package be.ucm.jds.DAL.DAO.Interface;
 
+
 import be.ucm.jds.DAL.Entity.JeuDAL;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,5 +1,6 @@
 package be.ucm.jds.DAL.DAO.Class;
 
+import be.ucm.jds.BL.Entity.Photo;
 import be.ucm.jds.DAL.DAO.Interface.AdresseDAO;
 import be.ucm.jds.DAL.Entity.AdresseDAL;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,8 @@ public class AdresseDAOimpl {
         return adresseDAO.save(adresse);
     }
 
-    public Optional<AdresseDAL> findById(Long idAdresseDAL){
-        return adresseDAO.findById(idAdresseDAL);
+    public Optional<AdresseDAL> findById(Long idAdresse){
+        return adresseDAO.findById(idAdresse);
     }
 
     public List<AdresseDAL> findByVille(String ville){

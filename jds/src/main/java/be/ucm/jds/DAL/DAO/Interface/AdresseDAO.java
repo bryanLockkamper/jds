@@ -1,5 +1,7 @@
 package be.ucm.jds.DAL.DAO.Interface;
 
+import be.ucm.jds.BL.Entity.Photo;
+import be.ucm.jds.DAL.Entity.AdresseDAL;
 import be.ucm.jds.DAL.Entity.AdresseDAL;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

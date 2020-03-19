@@ -1,7 +1,7 @@
 package be.ucm.jds.DAL.DAO.Class;
 
 import be.ucm.jds.DAL.DAO.Interface.GenreDAO;
-import be.ucm.jds.DAL.Entity.Genre;
+import be.ucm.jds.DAL.Entity.GenreDAL;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -16,15 +16,15 @@ public class GenreDAOimpl {
         this.genreDAO = genreDAO;
     }
 
-    public Optional<Genre> findbyId(Long id){
+    public Optional<GenreDAL> findbyId(Long id){
         return genreDAO.findById(id);
     }
 
-    public List<Genre> findAll(){
+    public List<GenreDAL> findAll(){
         return genreDAO.findAll();
     }
 
-    public Genre save(Genre genre){
+    public GenreDAL save(GenreDAL genre){
         return genreDAO.save(genre);
     }
 
@@ -37,7 +37,7 @@ public class GenreDAOimpl {
         }
     }
 
-    public Optional<Genre> findByTitre(String titre){
+    public Optional<GenreDAL> findByTitre(String titre){
         return genreDAO.findByTitre(titre);
     }
 }
