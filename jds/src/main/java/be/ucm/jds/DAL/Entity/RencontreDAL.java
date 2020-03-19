@@ -32,11 +32,11 @@ public class RencontreDAL {
     @OneToOne
     private AdresseDAL adresse;
 
-    @OneToOne
-    private UtilisateurDAL utilisateur;
+    @ManyToOne
+    private UtilisateurDAL utilisateurCrea;
 
     @ManyToMany
-    private List<UtilisateurDAL> utilisateurList;
+    private List<UtilisateurDAL> utilisateurAffList;
 
     @ManyToMany
     private List<JeuDAL> jeuList;

@@ -17,19 +17,27 @@ public class PhotoMapperOfAdresseDAL {
     private Photo photo;
     private PhotoDAL photoDAL;
 
-    public Photo photoDAL_To_Photo(PhotoDAL photoDAL){
+    private AdresseMapperOfPhotoDAL adresseMapperOfPhotoDAL;
+
+    @Autowired
+    public PhotoMapperOfAdresseDAL(AdresseMapperDAL adresseMapperDAL) {
+        this.adresseMapperOfPhotoDAL = adresseMapperOfPhotoDAL;
+    }
+
+    public Photo photoDAL_To_Photo(PhotoDAL photoDAL) {
 
         this.photoDAL = photoDAL;
 
         this.photo = new Photo(this.photoDAL.getId(),
                 this.photoDAL.getLien(),
-                null
-                );
+                this.adresseMapperOfPhotoDAL.adresseDAL_To_Adresse(this.photoDAL.getAdresse()),
+                this.photo.getRencontre()
+        );
 
         return this.photo;
     }
 
-    public PhotoDAL photo_To_PhotoDAL(Photo photo){
+    public PhotoDAL photo_To_PhotoDAL(Photo photo) {
 
         this.photo = photo;
 

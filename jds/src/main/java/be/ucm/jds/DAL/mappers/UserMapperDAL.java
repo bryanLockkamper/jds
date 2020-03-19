@@ -14,7 +14,6 @@ public class UserMapperDAL {
     private Utilisateur utilisateur;
     private UtilisateurDAL utilisateurDAL;
 
-
     private JeuMapperDAL jeuMapperDAL;
 
     private AdresseMapperDAL adresseMapperDAL;
@@ -48,7 +47,7 @@ public class UserMapperDAL {
             adresseList.add(adresseMapperDAL.adresseDAL_To_Adresse(a));
         }
 
-        for (RencontreDAL r : this.utilisateurDAL.getRencontreList()) {
+        for (RencontreDAL r : this.utilisateurDAL.getRencontreAffList()) {
             rencontreList.add(rencontreMapperDAL.rencontreDal_To_Rencontre(r));
         }
 

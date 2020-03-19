@@ -26,7 +26,7 @@ public class AdresseDAL {
     @ManyToMany
     private List<UtilisateurDAL> utilisateurList;
 
-    @ManyToMany(mappedBy = "adresseList")
+    @OneToMany
     private List<PhotoDAL> photoList;
 
     @OneToOne

@@ -21,8 +21,8 @@ public class PhotoDAL {
 
     private String lien;
 
-    @ManyToMany
-    private List<AdresseDAL> adresseList;
+    @ManyToOne
+    private AdresseDAL adresse;
 
     @OneToOne
     private RencontreDAL rencontre;

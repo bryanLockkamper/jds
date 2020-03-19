@@ -45,11 +45,11 @@ public class UtilisateurDAL {
     @ManyToMany(mappedBy = "utilisateurList")
     private List<AdresseDAL> adresseList;
 
-    @ManyToMany(mappedBy = "utilisateurList")
-    private List<RencontreDAL> rencontreList;
+    @ManyToMany(mappedBy = "utilisateurAffList")
+    private List<RencontreDAL> rencontreAffList;
 
-    @OneToOne
-    private RencontreDAL rencontre;
+    @OneToMany
+    private List<RencontreDAL> rencontreCreaList;
 
     public UtilisateurDAL(Long id, String pseudo, LocalDate date, String genre, List<JeuDAL> jeuPreferes, String nom, String prenom, String desc, String telephone, List<AdresseDAL> adresseList, PhotoDAL photo, List<RencontreDAL> rencontreList) {
     }

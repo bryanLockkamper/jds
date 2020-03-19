@@ -14,5 +14,6 @@ public class Photo {
     private Long id;
     private String lien;
 
-    private List<Adresse> adresseList;
+    private Adresse adresse;
+    private Rencontre rencontre;
 }
