@@ -18,15 +18,12 @@ public class UserMapperDAL {
 
     private AdresseMapperDAL adresseMapperDAL;
 
-    private PhotoMapperDAL photoMapperDAL;
-
     private RencontreMapperOfUserDAL rencontreMapperDAL;
 
     @Autowired
-    public UserMapperDAL(JeuMapperDAL jeuMapperDAL, AdresseMapperDAL adresseMapperDAL, PhotoMapperDAL photoMapperDAL, RencontreMapperOfUserDAL rencontreMapperDAL) {
+    public UserMapperDAL(JeuMapperDAL jeuMapperDAL, AdresseMapperDAL adresseMapperDAL, RencontreMapperOfUserDAL rencontreMapperDAL) {
         this.jeuMapperDAL = jeuMapperDAL;
         this.adresseMapperDAL = adresseMapperDAL;
-        this.photoMapperDAL = photoMapperDAL;
         this.rencontreMapperDAL = rencontreMapperDAL;
     }
 

@@ -18,29 +18,16 @@ public class AdresseMapperOfPhotoDAL {
     private Adresse adresse;
     private AdresseDAL adresseDAL;
 
-    private PhotoMapperOfAdresseDAL photoMapperDAL;
-
-    @Autowired
-    public AdresseMapperOfPhotoDAL(PhotoMapperOfAdresseDAL photoMapperDAL) {
-        this.photoMapperDAL = photoMapperDAL;
-    }
-
     public Adresse adresseDAL_To_Adresse(AdresseDAL adresseDAL) {
 
         this.adresseDAL = adresseDAL;
-
-        List<Photo> photoList = new ArrayList<>();
-
-        for (PhotoDAL p : this.adresseDAL.getPhotoList()) {
-            photoList.add(photoMapperDAL.photoDAL_To_Photo(p));
-        }
 
         this.adresse = new Adresse(this.adresseDAL.getId(),
                 this.adresseDAL.getRue(),
                 this.adresseDAL.getNumero(),
                 this.adresseDAL.getCodePostal(),
                 this.adresseDAL.getVille(),
-                photoList);
+                null);
 
         return this.adresse;
     }
@@ -49,13 +36,8 @@ public class AdresseMapperOfPhotoDAL {
 
         this.adresse = adresse;
 
-        List<PhotoDAL> photoDALList = new ArrayList<>();
         List<UtilisateurDAL> utilisateurDALListList = new ArrayList<>();
         RencontreDAL rencontreDAL = new RencontreDAL();
-
-        for (Photo p : this.adresse.getPhotos()) {
-            photoDALList.add(photoMapperDAL.photo_To_PhotoDAL(p));
-        }
 
         this.adresseDAL = new AdresseDAL(this.adresse.getId(),
                 this.adresse.getRue(),
@@ -63,7 +45,7 @@ public class AdresseMapperOfPhotoDAL {
                 this.adresse.getCodePostale(),
                 this.adresse.getVille(),
                 utilisateurDALListList,
-                photoDALList,
+                null,
                 rencontreDAL);
 
         return this.adresseDAL;
