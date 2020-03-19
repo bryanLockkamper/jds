@@ -19,7 +19,6 @@ public class Rencontre {
     private List<Jeu> jeuList;
     private int nbrParticipantsLimite;
     private Adresse adresse;
-    private List<Photo> photoList;
     private String desc;
     private Utilisateur utilisateurCreateur;
     private List<Utilisateur> utilisateursParticipants;
