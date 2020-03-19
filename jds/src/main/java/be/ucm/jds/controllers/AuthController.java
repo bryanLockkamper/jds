@@ -1,0 +1,37 @@
+package be.ucm.jds.controllers;
+
+import be.ucm.jds.BL.Entity.Jeu;
+import be.ucm.jds.BL.Entity.Utilisateur;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@CrossOrigin
+@RestController
+public class AuthController {
+
+    @PostMapping("/seConnecter")
+    public void seConnecter(@RequestBody Utilisateur utilisateur) {
+        //jeuDAL.save(jeu);
+        System.out.println(utilisateur);
+    }
+
+    @PostMapping("/seDeconnecter")
+    public void seDeconnecter(@RequestBody Utilisateur utilisateur) {
+        //jeuDAL.save(jeu);
+        System.out.println(utilisateur);
+    }
+
+    @PostMapping("/rafraichirToken")
+    public void rafraichirToken(@RequestBody Long id) {
+        //jeuDAL.save(jeu);
+        System.out.println(id);
+    }
+
+    @PostMapping("/inscription")
+    public void inscription(@RequestBody Utilisateur utilisateur) {
+        //jeuDAL.save(jeu);
+        System.out.println(utilisateur);
+    }
+}
