@@ -1,10 +1,15 @@
 package be.ucm.jds.DAL.mappers;
 
+import be.ucm.jds.BL.Entity.Adresse;
 import be.ucm.jds.BL.Entity.Photo;
+import be.ucm.jds.DAL.Entity.AdresseDAL;
 import be.ucm.jds.DAL.Entity.PhotoDAL;
 import be.ucm.jds.DAL.Entity.RencontreDAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class PhotoMapperOfAdresseDAL {
@@ -12,13 +17,20 @@ public class PhotoMapperOfAdresseDAL {
     private Photo photo;
     private PhotoDAL photoDAL;
 
+    private AdresseMapperDAL adresseMapperOfPhotoDAL;
+
+    @Autowired
+    public PhotoMapperOfAdresseDAL(AdresseMapperDAL adresseMapperOfPhotoDAL) {
+        this.adresseMapperOfPhotoDAL = adresseMapperOfPhotoDAL;
+    }
+
     public Photo photoDAL_To_Photo(PhotoDAL photoDAL) {
 
         this.photoDAL = photoDAL;
 
         this.photo = new Photo(this.photoDAL.getId(),
                 this.photoDAL.getLien(),
-                null,
+                this.adresseMapperOfPhotoDAL.adresseDAL_To_Adresse(this.photoDAL.getAdresse()),
                 this.photo.getRencontre()
         );
 

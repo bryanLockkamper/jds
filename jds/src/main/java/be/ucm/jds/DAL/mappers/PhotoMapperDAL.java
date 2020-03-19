@@ -17,11 +17,11 @@ public class PhotoMapperDAL {
     private Photo photo;
     private PhotoDAL photoDAL;
 
-    private AdresseMapperDAL adresseMapperDAL;
+    private AdresseMapperOfPhotoDAL adresseMapperDAL;
     private RencontreMapperDAL rencontreMapperDAL;
 
     @Autowired
-    public PhotoMapperDAL(AdresseMapperDAL adresseMapperDAL , RencontreMapperDAL rencontreMapperDAL) {
+    public PhotoMapperDAL(AdresseMapperOfPhotoDAL adresseMapperDAL , RencontreMapperDAL rencontreMapperDAL) {
         this.rencontreMapperDAL = rencontreMapperDAL;
         this.adresseMapperDAL = adresseMapperDAL;
     }
@@ -35,6 +35,7 @@ public class PhotoMapperDAL {
                 adresseMapperDAL.adresseDAL_To_Adresse(this.photoDAL.getAdresse()),
                 rencontreMapperDAL.rencontreDal_To_Rencontre(this.photoDAL.getRencontre()));
 
+        
         return this.photo;
     }
 
@@ -47,7 +48,7 @@ public class PhotoMapperDAL {
         this.photoDAL = new PhotoDAL(this.photo.getId(),
                 this.photo.getLien(),
                 adresseMapperDAL.adresse_To_AdresseDAL(this.photo.getAdresse()),
-                rencontreDAL);
+                rencontreMapperDAL.rencontre_To_RencontreDAL(this.photo.getRencontre()));
 
         return this.photoDAL;
     }
