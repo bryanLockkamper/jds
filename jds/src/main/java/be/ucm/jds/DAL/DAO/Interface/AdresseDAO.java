@@ -14,19 +14,19 @@ public interface AdresseDAO extends JpaRepository<AdresseDAL, Long> {
 
     List<AdresseDAL> findByVille(String ville);
 
-    List<AdresseDAL> findBycodePostale(Integer codePostale);
+    List<AdresseDAL> findBycodePostal(Integer codePostal);
 
     List<AdresseDAL> findByRue(String rue);
 
     Optional<AdresseDAL> findById(Long id);
 
-    Optional<AdresseDAL> findByPhoto(Long idPhoto);
+    Optional<AdresseDAL> findByPhotoList(Long idPhoto);
 
     List<AdresseDAL> findByVilleAndRue(String ville,String rue);
 
-    List<AdresseDAL> findByVilleAndCodePostal(String ville,Integer codePostale);
+    List<AdresseDAL> findByVilleAndCodePostal(String ville,Integer codePostal);
 
-    List<AdresseDAL> findByRueAndCodePostal(String rue,Integer codePostale);
+    List<AdresseDAL> findByRueAndCodePostal(String rue,Integer codePostal);
 
     Optional<AdresseDAL> findByRueAndNumero(String rue,String numero);
 

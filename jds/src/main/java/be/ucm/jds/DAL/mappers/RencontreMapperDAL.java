@@ -28,24 +28,24 @@ public class RencontreMapperDAL {
         List<Utilisateur> utilisateurList = new ArrayList<>();
         List<Jeu> jeuList = new ArrayList<>();
 
-        for (UtilisateurDAL u : this.rencontreDAL.getUtilisateurList_rencontre()) {
+        for (UtilisateurDAL u : this.rencontreDAL.getUtilisateurList()) {
             utilisateurList.add(userMapperDAL.utilisateurDal_To_Utilisateur(u));
         }
 
-        for (JeuDAL j : this.rencontreDAL.getJeuList_rencontre()) {
+        for (JeuDAL j : this.rencontreDAL.getJeuList()) {
             jeuList.add(jeuMapperDAL.jeuDAL_To_Jeu(j));
         }
 
-        this.rencontre = new Rencontre(this.rencontreDAL.getId_rencontre(),
-                this.rencontreDAL.getTitre_rencontre(),
-                this.rencontreDAL.getDate_rencontre(),
-                this.rencontreDAL.getTempDeJeu_rencontre(),
-                this.rencontreDAL.getNbrParticipantLimite_rencontre(),
-                adresse,
-                photo,
-                this.rencontreDAL.getDescr_rencontre(),
+        this.rencontre = new Rencontre(this.rencontreDAL.getId(),
+                        this.rencontreDAL.getTitre(),
+                        this.rencontreDAL.getDate(),
+                        this.rencontreDAL.getTempDeJeu(),
+                        this.rencontreDAL.getNbrParticipantLimite(),
+                        adresse,
+                this.rencontreDAL.getDescr(),
                 utilisateur,
                 utilisateurList,
+                photo,
                 jeuList);
 
         return rencontre;

@@ -25,15 +25,15 @@ public class AdresseMapperDAL {
 
         List<Photo> photoList = new ArrayList<>();
 
-        for (PhotoDAL p : this.adresseDAL.getPhotoList_adresse()) {
+        for (PhotoDAL p : this.adresseDAL.getPhotoList()) {
             photoList.add(photoMapperDAL.photoDAL_To_Photo(p));
         }
 
-        this.adresse = new Adresse(this.adresseDAL.getId_adresse(),
-                this.adresseDAL.getRue_adresse(),
-                this.adresseDAL.getNumero_adresse(),
-                this.adresseDAL.getCodePostal_adresse(),
-                this.adresseDAL.getVille_adresse(),
+        this.adresse = new Adresse(this.adresseDAL.getId(),
+                this.adresseDAL.getRue(),
+                this.adresseDAL.getNumero(),
+                this.adresseDAL.getCodePostal(),
+                this.adresseDAL.getVille(),
                 photoList);
 
         return this.adresse;

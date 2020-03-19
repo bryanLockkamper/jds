@@ -30,27 +30,27 @@ public class UserMapperDAL {
         Photo photo = new Photo();
         List<Rencontre> rencontreList = new ArrayList<>();
 
-        for (JeuDAL j : this.utilisateurDAL.getJeuList_utilisateur()) {
+        for (JeuDAL j : this.utilisateurDAL.getJeuList()) {
             jeuList.add(jeuMapperDAL.jeuDAL_To_Jeu(j));
         }
 
-        for (AdresseDAL a : this.utilisateurDAL.getAdresseList_utilisateur()) {
+        for (AdresseDAL a : this.utilisateurDAL.getAdresseList()) {
             adresseList.add(adresseMapperDAL.adresseDAL_To_Adresse(a));
         }
 
-        for (RencontreDAL r : this.utilisateurDAL.getRencontreList_utilisateur()) {
+        for (RencontreDAL r : this.utilisateurDAL.getRencontreList()) {
             rencontreList.add(rencontreMapperDAL.rencontreDal_To_Rencontre(r));
         }
 
-        utilisateur = new Utilisateur(this.utilisateurDAL.getId_user(),
-                this.utilisateurDAL.getPseudo_user(),
-                this.utilisateurDAL.getDateNaiss_user(),
-                this.utilisateurDAL.getGenre_user(),
+        utilisateur = new Utilisateur(this.utilisateurDAL.getId(),
+                this.utilisateurDAL.getPseudo(),
+                this.utilisateurDAL.getDateNaiss(),
+                this.utilisateurDAL.getGenre(),
                 jeuList,
-                this.utilisateurDAL.getNom_user(),
-                this.utilisateurDAL.getPrenom_user(),
-                this.utilisateurDAL.getDescr_user(),
-                this.utilisateurDAL.getNumTel_user(),
+                this.utilisateurDAL.getNom(),
+                this.utilisateurDAL.getPrenom(),
+                this.utilisateurDAL.getDescr(),
+                this.utilisateurDAL.getNumTel(),
                 adresseList,
                 photo,
                 rencontreList);

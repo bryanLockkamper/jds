@@ -17,27 +17,27 @@ public class RencontreDAL {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_rencontre;
+    private Long id;
 
-    private String titre_rencontre;
+    private String titre;
 
-    private LocalDate date_rencontre;
-    private Integer tempDeJeu_rencontre;
-    private Integer nbrParticipantLimite_rencontre;
-    private String descr_rencontre;
-
-    @OneToOne
-    private PhotoDAL photo_rencontre;
+    private LocalDate date;
+    private Integer tempDeJeu;
+    private Integer nbrParticipantLimite;
+    private String descr;
 
     @OneToOne
-    private AdresseDAL adresse_rencontre;
+    private PhotoDAL photo;
 
     @OneToOne
-    private UtilisateurDAL utilisateur_rencontre;
+    private AdresseDAL adresse;
+
+    @OneToOne
+    private UtilisateurDAL utilisateur;
 
     @ManyToMany
-    private List<UtilisateurDAL> utilisateurList_rencontre;
+    private List<UtilisateurDAL> utilisateurList;
 
     @ManyToMany
-    private List<JeuDAL> jeuList_rencontre;
+    private List<JeuDAL> jeuList;
 }

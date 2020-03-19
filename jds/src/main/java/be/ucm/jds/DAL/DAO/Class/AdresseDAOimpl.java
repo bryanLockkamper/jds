@@ -47,7 +47,7 @@ public class AdresseDAOimpl {
     }
 
     public List<AdresseDAL> findByCodePostal(Integer codePostal){
-        return adresseDAO.findBycodePostale(codePostal);
+        return adresseDAO.findBycodePostal(codePostal);
     }
 
     public Optional<AdresseDAL> findByPhoto(Long idPhoto){

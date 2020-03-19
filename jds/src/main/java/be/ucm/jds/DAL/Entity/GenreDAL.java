@@ -17,18 +17,18 @@ public class GenreDAL {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_genre;
+    private Long id;
 
-    private String titre_genre;
-    private String description_jeu;
+    private String titre;
+    private String description;
 
-    @ManyToMany(mappedBy = "genreList_jeu")
-    private List<JeuDAL> jeuList_genre;
+    @ManyToMany(mappedBy = "genreList")
+    private List<JeuDAL> jeuList;
 
     public GenreDAL(Long id, String titre, String desc) {
-        this.id_genre = id;
-        this.titre_genre = titre;
-        this.description_jeu = desc;
-        this.jeuList_genre = new ArrayList<>();
+        this.id = id;
+        this.titre = titre;
+        this.description = desc;
+        this.jeuList = new ArrayList<>();
     }
 }

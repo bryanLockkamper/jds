@@ -16,37 +16,37 @@ import java.util.List;
 public class JeuDAL {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_jeu;
+    private Long id;
 
     @Column(nullable = false)
-    private String titre_jeu;
-    private String descr_jeu;
+    private String titre;
+    private String descr;
 
     @Column(nullable = false)
-    private Integer nbrJoueurMin_jeu;
-    private Integer nbrJoueurMax_jeu;
+    private Integer nbrJoueurMin;
+    private Integer nbrJoueurMax;
 
-    private String maisonEdition_jeu;
-    private Integer ageMin_jeu;
-
-    @ManyToMany
-    private List<GenreDAL> genreList_jeu;
-
-    @ManyToMany(mappedBy = "jeuList_rencontre")
-    private List<RencontreDAL> rencontreList_jeu;
+    private String maisonEdition;
+    private Integer ageMin;
 
     @ManyToMany
-    private List<UtilisateurDAL> utilisateurList_jeu;
+    private List<GenreDAL> genreList;
+
+    @ManyToMany(mappedBy = "jeuList")
+    private List<RencontreDAL> rencontreList;
+
+    @ManyToMany
+    private List<UtilisateurDAL> utilisateurList;
 
 
     public JeuDAL(Long id, String titre, String desc, int nbrJoueursMin, int nbrJoueursMax, List<GenreDAL> genreDAL, String maisonEdition, int ageMin) {
-        this.id_jeu = id;
-        this.titre_jeu = titre;
-        this.descr_jeu = desc;
-        this.nbrJoueurMin_jeu = nbrJoueursMin;
-        this.nbrJoueurMax_jeu = nbrJoueursMax;
-        this.maisonEdition_jeu = maisonEdition;
-        this.ageMin_jeu = ageMin;
-        this.genreList_jeu = genreDAL;
+        this.id = id;
+        this.titre = titre;
+        this.descr = desc;
+        this.nbrJoueurMin = nbrJoueursMin;
+        this.nbrJoueurMax = nbrJoueursMax;
+        this.maisonEdition = maisonEdition;
+        this.ageMin = ageMin;
+        this.genreList = genreDAL;
     }
 }

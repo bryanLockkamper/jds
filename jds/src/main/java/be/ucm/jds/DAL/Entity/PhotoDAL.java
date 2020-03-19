@@ -17,13 +17,13 @@ public class PhotoDAL {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_photo;
+    private Long id;
 
-    private String lien_photo;
+    private String lien;
 
     @ManyToMany
-    private List<AdresseDAL> adresseList_photo;
+    private List<AdresseDAL> adresseList;
 
     @OneToOne
-    private RencontreDAL rencontre_photo;
+    private RencontreDAL rencontre;
 }

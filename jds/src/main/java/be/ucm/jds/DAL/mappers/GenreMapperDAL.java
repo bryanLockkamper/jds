@@ -12,9 +12,9 @@ public class GenreMapperDAL {
 
         this.genreDAL = genreDAL;
 
-        this.genre = new Genre(this.genreDAL.getId_genre(),
-                this.genreDAL.getTitre_genre(),
-                this.genreDAL.getDescription_jeu());
+        this.genre = new Genre(this.genreDAL.getId(),
+                this.genreDAL.getTitre(),
+                this.genreDAL.getDescription());
 
         return this.genre;
     }

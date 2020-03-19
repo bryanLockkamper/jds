@@ -15,13 +15,13 @@ public interface JeuDAO extends JpaRepository<JeuDAL, Long> {
 
     List<JeuDAL> findByNbrJoueurMax(Integer nbr);
 
-    List<JeuDAL> findByNbrJoueurMinAndMax(Integer nbrMin,Integer nbrMax);
+    List<JeuDAL> findByNbrJoueurMinAndNbrJoueurMax(Integer nbrMin,Integer nbrMax);
 
     List<JeuDAL> findByMaisonEdition(String maisonEdition);
 
     List<JeuDAL> findByAgeMin(Integer ageMin);
 
-    List<JeuDAL> findByGenre(String genre);
+    List<JeuDAL> findByGenreList(String genre);
 
-    List<JeuDAL> findByGenres(String... genre);
+    List<JeuDAL> findByGenreList(String... genre);
 }

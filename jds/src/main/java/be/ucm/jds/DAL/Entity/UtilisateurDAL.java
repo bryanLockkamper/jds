@@ -20,36 +20,36 @@ import java.util.List;
 public class UtilisateurDAL {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_user;
+    private Long id;
 
     @Column(nullable = false , unique = true)
-    private String email_user;
+    private String email;
     @Column(nullable = false)
-    private String mdp_user;
+    private String mdp;
     @Column(nullable = false)
-    private String pseudo_user;
+    private String pseudo;
     @Column(nullable = false)
-    private LocalDate dateNaiss_user;
-    private String genre_user;
-    private String nom_user;
-    private String prenom_user;
-    private String descr_user;
-    private String numTel_user;
+    private LocalDate dateNaiss;
+    private String genre;
+    private String nom;
+    private String prenom;
+    private String descr;
+    private String numTel;
 
     @OneToOne
-    private PhotoDAL photo_user;
+    private PhotoDAL photo;
 
-    @ManyToMany(mappedBy = "utilisateurList_jeu")
-    private List<JeuDAL> jeuList_utilisateur;
+    @ManyToMany(mappedBy = "utilisateurList")
+    private List<JeuDAL> jeuList;
 
-    @ManyToMany(mappedBy = "utilisateurList_adresse")
-    private List<AdresseDAL> adresseList_utilisateur;
+    @ManyToMany(mappedBy = "utilisateurList")
+    private List<AdresseDAL> adresseList;
 
-    @ManyToMany(mappedBy = "utilisateurList_rencontre")
-    private List<RencontreDAL> rencontreList_utilisateur;
+    @ManyToMany(mappedBy = "utilisateurList")
+    private List<RencontreDAL> rencontreList;
 
     @OneToOne
-    private RencontreDAL rencontre_utilisateur;
+    private RencontreDAL rencontre;
 
     public UtilisateurDAL(Long id, String pseudo, LocalDate date, String genre, List<JeuDAL> jeuPreferes, String nom, String prenom, String desc, String telephone, List<AdresseDAL> adresseList, PhotoDAL photo, List<RencontreDAL> rencontreList) {
     }

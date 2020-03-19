@@ -25,12 +25,12 @@ public class PhotoMapperDAL {
 
         List<Adresse> adresseList = new ArrayList<>();
 
-        for (AdresseDAL a : this.photoDAL.getAdresseList_photo()) {
+        for (AdresseDAL a : this.photoDAL.getAdresseList()) {
             adresseList.add(adresseMapperDAL.adresseDAL_To_Adresse(a));
         }
 
-        this.photo = new Photo(this.photoDAL.getId_photo(),
-                this.photoDAL.getLien_photo(),
+        this.photo = new Photo(this.photoDAL.getId(),
+                this.photoDAL.getLien(),
                 adresseList
                 );
 

@@ -29,7 +29,7 @@ public class JeuDAOimpl {
     }
 
     public List<JeuDAL> findByNbrJoueurMinAndMax(Integer nbrMin,Integer nbrMax){
-        return jeuDAO.findByNbrJoueurMinAndMax(nbrMin,nbrMax);
+        return jeuDAO.findByNbrJoueurMinAndNbrJoueurMax(nbrMin,nbrMax);
     }
 
     public List<JeuDAL> findByMaisonEdition(String maisonEdition){
@@ -41,11 +41,11 @@ public class JeuDAOimpl {
     }
 
     public List<JeuDAL> findByGenre(String genre){
-        return jeuDAO.findByGenre(genre);
+        return jeuDAO.findByGenreList(genre);
     }
 
     public List<JeuDAL> findByGenres(String... genre){
-        return jeuDAO.findByGenres(genre);
+        return jeuDAO.findByGenreList(genre);
     }
 
 

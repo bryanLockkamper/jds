@@ -22,18 +22,18 @@ public class JeuMapperDAL {
 
         List<Genre> genreList = new ArrayList<>();
 
-        for (GenreDAL g : this.jeuDAL.getGenreList_jeu()) {
+        for (GenreDAL g : this.jeuDAL.getGenreList()) {
             genreList.add(genreMapperDAL.genreDAL_To_Genre(g));
         }
 
-        this.jeu = new Jeu(this.jeuDAL.getId_jeu(),
-                this.jeuDAL.getTitre_jeu(),
-                this.jeuDAL.getDescr_jeu(),
-                this.jeuDAL.getNbrJoueurMin_jeu(),
-                this.jeuDAL.getNbrJoueurMax_jeu(),
+        this.jeu = new Jeu(this.jeuDAL.getId(),
+                this.jeuDAL.getTitre(),
+                this.jeuDAL.getDescr(),
+                this.jeuDAL.getNbrJoueurMin(),
+                this.jeuDAL.getNbrJoueurMax(),
                 genreList,
-                this.jeuDAL.getMaisonEdition_jeu(),
-                this.jeuDAL.getAgeMin_jeu());
+                this.jeuDAL.getMaisonEdition(),
+                this.jeuDAL.getAgeMin());
 
         return this.jeu;
     }

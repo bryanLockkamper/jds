@@ -16,19 +16,19 @@ public class AdresseDAL {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_adresse;
+    private Long id;
 
-    private String rue_adresse;
-    private String numero_adresse;
-    private Integer codePostal_adresse;
-    private String ville_adresse;
+    private String rue;
+    private String numero;
+    private Integer codePostal;
+    private String ville;
 
     @ManyToMany
-    private List<UtilisateurDAL> utilisateurList_adresse;
+    private List<UtilisateurDAL> utilisateurList;
 
-    @ManyToMany(mappedBy = "adresseList_photo")
-    private List<PhotoDAL> photoList_adresse;
+    @ManyToMany(mappedBy = "adresseList")
+    private List<PhotoDAL> photoList;
 
     @OneToOne
-    private RencontreDAL rencontre_adresse;
+    private RencontreDAL rencontre;
 }
