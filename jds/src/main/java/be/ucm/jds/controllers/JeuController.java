@@ -1,9 +1,7 @@
 package be.ucm.jds.controllers;
 
 import be.ucm.jds.BL.Entity.Jeu;
-import be.ucm.jds.DAL.DAO.Interface.GenreDAO;
 import be.ucm.jds.DAL.DAO.Interface.JeuDAO;
-import be.ucm.jds.DAL.Entity.JeuDAL;
 import be.ucm.jds.DAL.mappers.JeuMapperDAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
