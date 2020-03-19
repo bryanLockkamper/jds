@@ -1,7 +1,7 @@
 package be.ucm.jds.DAL.DAO.Class;
 
 import be.ucm.jds.DAL.DAO.Interface.JeuDAO;
-import be.ucm.jds.DAL.Entity.Jeu;
+import be.ucm.jds.DAL.Entity.JeuDAL;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -16,36 +16,36 @@ public class JeuDAOimpl {
         this.jeuDAO = jeuDAO;
     }
 
-    public Optional<Jeu> findByTitre(String titre){
-        return findByTitre(titre);
+    public Optional<JeuDAL> findByTitre(String titre){
+        return jeuDAO.findByTitre(titre);
     }
 
-    public List<Jeu> findByNbrJoueurMin(Integer nbr){
-        return findByNbrJoueurMin(nbr);
+    public List<JeuDAL> findByNbrJoueurMin(Integer nbr){
+        return jeuDAO.findByNbrJoueurMin(nbr);
     }
 
-    public List<Jeu> findByNbrJoueurMax(Integer nbr){
-        return findByNbrJoueurMax(nbr);
+    public List<JeuDAL> findByNbrJoueurMax(Integer nbr){
+        return jeuDAO.findByNbrJoueurMax(nbr);
     }
 
-    public List<Jeu> findByNbrJoueurMinAndMax(Integer nbrMin,Integer nbrMax){
-        return findByNbrJoueurMinAndMax(nbrMin,nbrMax);
+    public List<JeuDAL> findByNbrJoueurMinAndMax(Integer nbrMin,Integer nbrMax){
+        return jeuDAO.findByNbrJoueurMinAndMax(nbrMin,nbrMax);
     }
 
-    public List<Jeu> findByMaisonEdition(String maisonEdition){
-        return findByMaisonEdition(maisonEdition);
+    public List<JeuDAL> findByMaisonEdition(String maisonEdition){
+        return jeuDAO.findByMaisonEdition(maisonEdition);
     }
 
-    public List<Jeu> findByAgeMin(Integer ageMin){
-        return findByAgeMin(ageMin);
+    public List<JeuDAL> findByAgeMin(Integer ageMin){
+        return jeuDAO.findByAgeMin(ageMin);
     }
 
-    public List<Jeu> findByGenre(String genre){
-        return findByGenre(genre);
+    public List<JeuDAL> findByGenre(String genre){
+        return jeuDAO.findByGenre(genre);
     }
 
-    public List<Jeu> findByGenres(String... genre){
-        return findByGenres(genre);
+    public List<JeuDAL> findByGenres(String... genre){
+        return jeuDAO.findByGenres(genre);
     }
 
 

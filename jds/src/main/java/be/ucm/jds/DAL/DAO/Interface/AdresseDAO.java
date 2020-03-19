@@ -1,7 +1,7 @@
 package be.ucm.jds.DAL.DAO.Interface;
 
 import be.ucm.jds.BL.Entity.Photo;
-import be.ucm.jds.DAL.Entity.Adresse;
+import be.ucm.jds.DAL.Entity.AdresseDAL;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,27 +9,27 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface AdresseDAO extends JpaRepository<Adresse, Long> {
+public interface AdresseDAO extends JpaRepository<AdresseDAL, Long> {
 
-    List<Adresse> findByVille(String ville);
+    List<AdresseDAL> findByVille(String ville);
 
-    List<Adresse> findBycodePostale(Integer codePostale);
+    List<AdresseDAL> findBycodePostale(Integer codePostale);
 
-    List<Adresse> findByRue(String rue);
+    List<AdresseDAL> findByRue(String rue);
 
-    Optional<Adresse> findById(Long id);
+    Optional<AdresseDAL> findById(Long id);
 
-    Optional<Adresse> findByPhoto(Long idPhoto);
+    Optional<AdresseDAL> findByPhoto(Long idPhoto);
 
-    List<Adresse> findByVilleAndRue(String ville,String rue);
+    List<AdresseDAL> findByVilleAndRue(String ville,String rue);
 
-    List<Adresse> findByVilleAndCodePostal(String ville,Integer codePostale);
+    List<AdresseDAL> findByVilleAndCodePostal(String ville,Integer codePostale);
 
-    List<Adresse> findByRueAndCodePostal(String rue,Integer codePostale);
+    List<AdresseDAL> findByRueAndCodePostal(String rue,Integer codePostale);
 
-    Optional<Adresse> findByRueAndNumero(String rue,String numero);
+    Optional<AdresseDAL> findByRueAndNumero(String rue,String numero);
 
-    Optional<Adresse> findByVilleAndRueAndNumero(String ville,String rue,String numero);
+    Optional<AdresseDAL> findByVilleAndRueAndNumero(String ville,String rue,String numero);
 
-    Optional<Adresse> findByVilleAndRueAndCodePostalAndNumero(String ville,String rue,Integer codePostal,String numero);
+    Optional<AdresseDAL> findByVilleAndRueAndCodePostalAndNumero(String ville,String rue,Integer codePostal,String numero);
 }

@@ -1,12 +1,12 @@
 package be.ucm.jds.DAL.DAO.Interface;
 
-import be.ucm.jds.DAL.Entity.Genre;
+import be.ucm.jds.DAL.Entity.GenreDAL;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface GenreDAO extends JpaRepository<Genre, Long> {
+public interface GenreDAO extends JpaRepository<GenreDAL, Long> {
 
-    Optional<Genre> findByTitre(String titre);
+    Optional<GenreDAL> findByTitre(String titre);
 }
