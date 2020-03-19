@@ -13,36 +13,22 @@ import java.util.List;
 @Service
 public class JeuMapperDAL {
 
-    private Jeu jeu;
-    private JeuDAL jeuDAL;
-
-
-    private GenreMapperDAL genreMapperDAL;
-
-    @Autowired
-    public JeuMapperDAL(GenreMapperDAL genreMapperDAL) {
-        this.genreMapperDAL = genreMapperDAL;
-    }
-
-    public Jeu jeuDAL_To_Jeu (JeuDAL jeuDAL){
-        this.jeuDAL = jeuDAL;
+    public static Jeu jeuDAL_To_Jeu (JeuDAL jeuDAL){
 
         List<Genre> genreList = new ArrayList<>();
 
-        for (GenreDAL g : this.jeuDAL.getGenreList()) {
-            genreList.add(genreMapperDAL.genreDAL_To_Genre(g));
+        for (GenreDAL g : jeuDAL.getGenreList()) {
+            genreList.add(GenreMapperDAL.genreDAL_To_Genre(g));
         }
 
-        this.jeu = new Jeu(this.jeuDAL.getId(),
-                this.jeuDAL.getTitre(),
-                this.jeuDAL.getDescr(),
-                this.jeuDAL.getNbrJoueurMin(),
-                this.jeuDAL.getNbrJoueurMax(),
+        return new Jeu(jeuDAL.getId(),
+                jeuDAL.getTitre(),
+                jeuDAL.getDescr(),
+                jeuDAL.getNbrJoueurMin(),
+                jeuDAL.getNbrJoueurMax(),
                 genreList,
-                this.jeuDAL.getMaisonEdition(),
-                this.jeuDAL.getAgeMin());
-
-        return this.jeu;
+                jeuDAL.getMaisonEdition(),
+                jeuDAL.getAgeMin());
     }
 
     public static JeuDAL jeu_To_JeuDAL (Jeu jeu){
@@ -53,7 +39,7 @@ public class JeuMapperDAL {
             genreDALList.add(GenreMapperDAL.genre_To_GenreDAL(g));
         }
 
-        JeuDAL jeuDAL = new JeuDAL(jeu.getId(),
+        return new JeuDAL(jeu.getId(),
                 jeu.getTitre(),
                 jeu.getDesc(),
                 jeu.getNbrJoueursMin(),
@@ -61,8 +47,6 @@ public class JeuMapperDAL {
                 genreDALList,
                 jeu.getMaisonEdition(),
                 jeu.getAgeMin());
-
-        return jeuDAL;
     }
 
 }

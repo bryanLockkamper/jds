@@ -6,41 +6,49 @@ import be.ucm.jds.DAL.DAO.Interface.JeuDAO;
 import be.ucm.jds.DAL.Entity.JeuDAL;
 import be.ucm.jds.DAL.mappers.JeuMapperDAL;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
 public class JeuController {
 
     JeuDAO jeuDAO;
-    GenreDAO genreDAO;
 
     @Autowired
-    public JeuController(JeuDAO jeuDAO, GenreDAO genreDAO) {
+    public JeuController(JeuDAO jeuDAO) {
         this.jeuDAO = jeuDAO;
-        this.genreDAO = genreDAO;
     }
 
     @PostMapping("/creerJeu")
     public void creerJeu(@RequestBody Jeu jeu) {
-        JeuDAL jeuDAL = JeuMapperDAL.jeu_To_JeuDAL(jeu);
-
-        jeuDAL = jeuDAO.save(jeuDAL);
-        System.out.println(jeuDAL);
+        jeuDAO.save(JeuMapperDAL.jeu_To_JeuDAL(jeu));
     }
 
     @PostMapping("/modifierJeu")
     public void modifierJeu(@RequestBody Jeu jeu) {
-        //jeuDAL.save(jeu);
-        System.out.println(jeu);
+        jeuDAO.save(JeuMapperDAL.jeu_To_JeuDAL(jeu));
     }
 
     @PostMapping("/supprimerJeu")
     public void supprimerJeu(@RequestBody Long id) {
-        //jeuDAL.save(jeu);
-        System.out.println(id);
+        jeuDAO.deleteById(id);
+    }
+
+    @GetMapping("jeu/{id}")
+    public Jeu getJeu(@PathVariable Long id) {
+        return JeuMapperDAL.jeuDAL_To_Jeu(Objects.requireNonNull(jeuDAO.findById(id).orElse(null)));
+    }
+
+    @GetMapping("jeux")
+    public List<Jeu> getAllJeu() {
+        return jeuDAO.findAll()
+                .stream()
+                .map(JeuMapperDAL::jeuDAL_To_Jeu)
+                .collect(Collectors.toList())
+                ;
     }
 }
