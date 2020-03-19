@@ -22,10 +22,7 @@ public interface UtilisateurDAO extends JpaRepository<UtilisateurDAL, Long> {
 
     List<UtilisateurDAL> findByJeuId(Long jeuId);
 
-    List<UtilisateurDAL> findByRencontreId(Long RencontreId);
+    List<UtilisateurDAL> findByRencontreAffId(Long RencontreId);
 
-    Optional<UtilisateurDAL> findByRencontreId(Long RencontreId);
-
-
-
+    Optional<UtilisateurDAL> findByRencontreCreaId(Long RencontreId);
 }
