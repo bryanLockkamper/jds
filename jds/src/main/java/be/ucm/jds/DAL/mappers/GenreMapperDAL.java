@@ -7,18 +7,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class GenreMapperDAL {
 
-    private Genre genre;
-    private GenreDAL genreDAL;
+    public static Genre genreDAL_To_Genre(GenreDAL genreDAL){
 
-    public Genre genreDAL_To_Genre(GenreDAL genreDAL){
+        Genre genre = new Genre(genreDAL.getId(),
+                genreDAL.getTitre(),
+                genreDAL.getDescription());
 
-        this.genreDAL = genreDAL;
-
-        this.genre = new Genre(this.genreDAL.getId(),
-                this.genreDAL.getTitre(),
-                this.genreDAL.getDescription());
-
-        return this.genre;
+        return genre;
     }
 
     public static GenreDAL genre_To_GenreDAL(Genre genre){

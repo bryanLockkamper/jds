@@ -2,10 +2,12 @@ package be.ucm.jds.DAL.DAO.Interface;
 
 import be.ucm.jds.DAL.Entity.RencontreDAL;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Repository
 public interface RencontreDAO extends JpaRepository<RencontreDAL, Long> {
 
     List<RencontreDAL> findByTitre(String titre);
