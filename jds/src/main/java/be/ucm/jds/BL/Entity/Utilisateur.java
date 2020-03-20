@@ -25,5 +25,6 @@ public class Utilisateur {
     private String numero;
     private List<Adresse> adresseList;
     private Photo photo;
-    private List<Rencontre> rencontreList;
+    private List<Rencontre> rencontreAffList;
+    private List<Rencontre> rencontreCreaList;
 }
