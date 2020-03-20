@@ -23,7 +23,7 @@ public class GenreDAOimpl{
     }
 
     public List<GenreDAL> findAll(){
-        return (List<GenreDAL>) genreDAO.findAll();
+        return genreDAO.findAll();
     }
 
     public GenreDAL save(GenreDAL genre){

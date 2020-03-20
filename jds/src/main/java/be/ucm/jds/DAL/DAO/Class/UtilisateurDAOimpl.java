@@ -1,5 +1,6 @@
 package be.ucm.jds.DAL.DAO.Class;
 
+import be.ucm.jds.BL.Entity.Utilisateur;
 import be.ucm.jds.DAL.DAO.Interface.UtilisateurDAO;
 import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class UtilisateurDAOimpl {
     }
 
     public List<UtilisateurDAL> findAll(){
-        return (List<UtilisateurDAL>) utilisateurDAO.findAll();
+        return utilisateurDAO.findAll();
     }
 
     public UtilisateurDAL save(UtilisateurDAL utilisateurDAL){

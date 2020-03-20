@@ -65,6 +65,6 @@ public class JeuDAOimpl {
     }
 
     public List<JeuDAL> findAll() {
-        return (List<JeuDAL>) jeuDAO.findAll();
+        return jeuDAO.findAll();
     }
 }
