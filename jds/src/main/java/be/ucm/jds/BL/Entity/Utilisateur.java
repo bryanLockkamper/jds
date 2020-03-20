@@ -14,14 +14,17 @@ public class Utilisateur {
 
     private Long id;
     private String pseudo;
-    private LocalDate date;
+    private String mdp;
+    private String email;
+    private LocalDate dateNaissance;
     private String genre;
     private List<Jeu> jeuPreferes;
     private String nom;
     private String prenom;
-    private String desc;
-    private String telephone;
+    private String description;
+    private String numero;
     private List<Adresse> adresseList;
     private Photo photo;
-    private List<Rencontre> rencontreList;
+    private List<Rencontre> rencontreAffList;
+    private List<Rencontre> rencontreCreaList;
 }

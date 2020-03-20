@@ -18,9 +18,9 @@ public interface UtilisateurDAO extends JpaRepository<UtilisateurDAL, Long> {
 
     List<UtilisateurDAL> findByPrenom(String prenom);
 
-    Optional<UtilisateurDAL> findByNumTel(String numTel);
+    Optional<UtilisateurDAL> findByNumero(String numTel);
 
-    List<UtilisateurDAL> findByJeuListId(Long jeuListId);
+    List<UtilisateurDAL> findByJeuPreferes(Long jeuListId);
 
-    List<UtilisateurDAL> findByrencontreAffListId(Long rencontreAffListId);
+    List<UtilisateurDAL> findByRencontreAffList(Long rencontreAffListId);
 }

@@ -43,11 +43,11 @@ public class JeuDAOimpl {
     }
 
     public List<JeuDAL> findByGenre(String genre){
-        return jeuDAO.findByGenreList(genre);
+        return jeuDAO.findByGenres(genre);
     }
 
     public List<JeuDAL> findByGenres(String... genre){
-        return jeuDAO.findByGenreList(genre);
+        return jeuDAO.findByGenres(genre);
     }
 
 
