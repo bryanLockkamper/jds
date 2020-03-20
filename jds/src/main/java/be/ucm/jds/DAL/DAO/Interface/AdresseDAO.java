@@ -1,17 +1,14 @@
 package be.ucm.jds.DAL.DAO.Interface;
 
-import be.ucm.jds.BL.Entity.Photo;
-import be.ucm.jds.DAL.Entity.AdresseDAL;
 import be.ucm.jds.DAL.Entity.AdresseDAL;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface AdresseDAO extends CrudRepository<AdresseDAL, Long> {
+public interface AdresseDAO extends JpaRepository<AdresseDAL, Long> {
 
     List<AdresseDAL> findByVille(String ville);
 

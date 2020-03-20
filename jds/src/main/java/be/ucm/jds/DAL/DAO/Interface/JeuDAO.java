@@ -3,14 +3,13 @@ package be.ucm.jds.DAL.DAO.Interface;
 
 import be.ucm.jds.DAL.Entity.JeuDAL;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface JeuDAO extends CrudRepository<JeuDAL, Long> {
+public interface JeuDAO extends JpaRepository<JeuDAL, Long> {
 
     Optional<JeuDAL> findByTitre(String titre);
 
