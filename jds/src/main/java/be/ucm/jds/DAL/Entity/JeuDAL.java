@@ -35,7 +35,7 @@ public class JeuDAL {
     @ManyToMany(mappedBy = "jeuList")
     private List<RencontreDAL> rencontreList;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "jeuPreferes")
     private List<UtilisateurDAL> utilisateurList;
 
 

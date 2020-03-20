@@ -23,7 +23,7 @@ public class AdresseDAL {
     private Integer codePostal;
     private String ville;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "adresseList")
     private List<UtilisateurDAL> utilisateurList;
 
     @OneToMany(cascade = CascadeType.ALL)

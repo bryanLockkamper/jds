@@ -39,10 +39,10 @@ public class UtilisateurDAL {
     @OneToOne(cascade = CascadeType.ALL)
     private PhotoDAL photo;
 
-    @ManyToMany(mappedBy = "utilisateurList", cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.MERGE)
     private List<JeuDAL> jeuPreferes;
 
-    @ManyToMany(mappedBy = "utilisateurList", cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<AdresseDAL> adresseList;
 
     @ManyToMany(mappedBy = "utilisateurAffList")
