@@ -23,7 +23,7 @@ public class GenreDAL {
     private String titre;
     private String description;
 
-    @ManyToMany(mappedBy = "genreList")
+    @ManyToMany(mappedBy = "genres")
     private List<JeuDAL> jeuList;
 
     public GenreDAL(Long id, String titre, String desc) {

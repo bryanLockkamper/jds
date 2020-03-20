@@ -2,90 +2,19 @@ package be.ucm.jds.DAL.mappers;
 
 import be.ucm.jds.BL.Entity.*;
 import be.ucm.jds.DAL.Entity.*;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
 public class RencontreMapperDAL {
-
-    private Rencontre rencontre;
-    private RencontreDAL rencontreDAL;
-
-    private UserMapperDAL userMapperDAL;
-
-    @Autowired
-    public RencontreMapperDAL(UserMapperDAL userMapperDAL) {
-        this.userMapperDAL = userMapperDAL;
+    public static Rencontre rencontreDal_To_Rencontre(RencontreDAL rencontreDAL) {
+        return new ModelMapper().map(rencontreDAL, Rencontre.class);
     }
 
-    public Rencontre rencontreDal_To_Rencontre(RencontreDAL rencontreDAL) {
-
-        this.rencontreDAL = rencontreDAL;
-
-        Adresse adresse = new Adresse();
-        Photo photo = new Photo();
-        Utilisateur utilisateur = new Utilisateur();
-
-        List<Utilisateur> utilisateurList = new ArrayList<>();
-        List<Jeu> jeuList = new ArrayList<>();
-
-        for (UtilisateurDAL u : this.rencontreDAL.getUtilisateurAffList()) {
-            utilisateurList.add(userMapperDAL.utilisateurDal_To_Utilisateur(u));
-        }
-
-        for (JeuDAL j : this.rencontreDAL.getJeuList()) {
-            jeuList.add(JeuMapperDAL.jeuDAL_To_Jeu(j));
-        }
-
-        this.rencontre = new Rencontre(this.rencontreDAL.getId(),
-                        this.rencontreDAL.getTitre(),
-                        this.rencontreDAL.getDate(),
-                        this.rencontreDAL.getTempDeJeu(),
-                        this.rencontreDAL.getNbrParticipantLimite(),
-                        adresse,
-                this.rencontreDAL.getDescr(),
-                utilisateur,
-                utilisateurList,
-                photo,
-                jeuList);
-
-        return rencontre;
-    }
-
-    public RencontreDAL rencontre_To_RencontreDAL(Rencontre rencontre) {
-
-        this.rencontre = rencontre;
-
-        AdresseDAL adresse = new AdresseDAL();
-        PhotoDAL photo = new PhotoDAL();
-        UtilisateurDAL utilisateur = new UtilisateurDAL();
-
-        List<UtilisateurDAL> utilisateurList = new ArrayList<>();
-        List<JeuDAL> jeuList = new ArrayList<>();
-
-        for (Utilisateur u : this.rencontre.getUtilisateursParticipants()) {
-            utilisateurList.add(userMapperDAL.Utilisateur_To_UtilisateurDAL(u));
-        }
-
-        for (Jeu j : this.rencontre.getJeuList()) {
-            jeuList.add(JeuMapperDAL.jeu_To_JeuDAL(j));
-        }
-
-        this.rencontreDAL = new RencontreDAL(this.rencontre.getId(),
-                this.rencontre.getTitre(),
-                this.rencontre.getDate(),
-                this.rencontre.getTempDeJeu(),
-                this.rencontre.getNbrParticipantsLimite(),
-                this.rencontre.getDesc(),
-                photo,
-                adresse,
-                utilisateur,
-                utilisateurList,
-                jeuList);
-
-        return this.rencontreDAL;
+    public static RencontreDAL rencontre_To_RencontreDAL(Rencontre rencontre) {
+        return new ModelMapper().map(rencontre, RencontreDAL.class);
     }
 }

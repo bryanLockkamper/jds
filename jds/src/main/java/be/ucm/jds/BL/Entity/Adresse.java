@@ -11,8 +11,8 @@ import java.util.List;
 public class Adresse {
     private Long id;
     private String rue;
-    private String num;
-    private int codePostale;
+    private String numero;
+    private int codePostal;
     private String ville;
     private List<Photo> photos;
 }

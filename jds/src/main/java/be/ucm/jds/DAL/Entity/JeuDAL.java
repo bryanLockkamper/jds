@@ -20,7 +20,7 @@ public class JeuDAL {
 
     @Column(nullable = false)
     private String titre;
-    private String descr;
+    private String description;
 
     @Column(nullable = false)
     private Integer nbrJoueurMin;
@@ -30,23 +30,23 @@ public class JeuDAL {
     private Integer ageMin;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private List<GenreDAL> genreList;
+    private List<GenreDAL> genres;
 
     @ManyToMany(mappedBy = "jeuList")
     private List<RencontreDAL> rencontreList;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<UtilisateurDAL> utilisateurList;
 
 
     public JeuDAL(Long id, String titre, String desc, int nbrJoueursMin, int nbrJoueursMax, List<GenreDAL> genreDAL, String maisonEdition, int ageMin) {
         this.id = id;
         this.titre = titre;
-        this.descr = desc;
+        this.description = desc;
         this.nbrJoueurMin = nbrJoueursMin;
         this.nbrJoueurMax = nbrJoueursMax;
         this.maisonEdition = maisonEdition;
         this.ageMin = ageMin;
-        this.genreList = genreDAL;
+        this.genres = genreDAL;
     }
 }

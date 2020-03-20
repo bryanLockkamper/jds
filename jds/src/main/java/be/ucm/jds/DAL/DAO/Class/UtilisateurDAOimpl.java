@@ -51,7 +51,7 @@ public class UtilisateurDAOimpl {
         return utilisateurDAO.findByPrenom(prenom);
     }
 
-    public Optional<UtilisateurDAL> findByNumTel(String numTel){
+    /*public Optional<UtilisateurDAL> findByNumTel(String numTel){
         return utilisateurDAO.findByNumTel(numTel);
     }
 
@@ -61,9 +61,9 @@ public class UtilisateurDAOimpl {
 
     public List<UtilisateurDAL> findByRencontreAffId(Long rencontreId){
         return utilisateurDAO.findByrencontreAffListId(rencontreId);
-    }
+    }*/
 
-    public Optional<UtilisateurDAL> findByRencontreCreaId(Long rencontreId){
-        return utilisateurDAO.findByRencontreCreaListId(rencontreId);
-    }
+//    public Optional<UtilisateurDAL> findByRencontreCreaId(Long rencontreId){
+//        return utilisateurDAO.findByRencontreCreaListId(rencontreId);
+//    }
 }

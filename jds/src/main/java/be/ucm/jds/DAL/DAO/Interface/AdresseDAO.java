@@ -20,7 +20,7 @@ public interface AdresseDAO extends JpaRepository<AdresseDAL, Long> {
 
     Optional<AdresseDAL> findById(Long id);
 
-    Optional<AdresseDAL> findByPhotoList(Long idPhoto);
+    Optional<AdresseDAL> findByPhotos(Long idPhoto);
 
     List<AdresseDAL> findByVilleAndRue(String ville,String rue);
 

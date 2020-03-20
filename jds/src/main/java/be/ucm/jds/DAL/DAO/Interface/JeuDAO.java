@@ -23,7 +23,7 @@ public interface JeuDAO extends JpaRepository<JeuDAL, Long> {
 
     List<JeuDAL> findByAgeMin(Integer ageMin);
 
-    List<JeuDAL> findByGenreList(String genre);
+    List<JeuDAL> findByGenres(String genre);
 
-    List<JeuDAL> findByGenreList(String... genre);
+    List<JeuDAL> findByGenres(String... genre);
 }

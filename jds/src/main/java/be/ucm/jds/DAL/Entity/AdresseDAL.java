@@ -23,11 +23,11 @@ public class AdresseDAL {
     private Integer codePostal;
     private String ville;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<UtilisateurDAL> utilisateurList;
 
-    @OneToMany
-    private List<PhotoDAL> photoList;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<PhotoDAL> photos;
 
     @OneToOne
     private RencontreDAL rencontre;
