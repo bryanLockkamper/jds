@@ -29,20 +29,20 @@ public class UtilisateurDAL {
     @Column(nullable = false)
     private String pseudo;
     @Column(nullable = false)
-    private LocalDate dateNaiss;
+    private LocalDate dateNaissance;
     private String genre;
     private String nom;
     private String prenom;
-    private String descr;
-    private String numTel;
+    private String description;
+    private String numero;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private PhotoDAL photo;
 
-    @ManyToMany(mappedBy = "utilisateurList")
-    private List<JeuDAL> jeuList;
+    @ManyToMany(cascade = CascadeType.MERGE)
+    private List<JeuDAL> jeuPreferes;
 
-    @ManyToMany(mappedBy = "utilisateurList")
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<AdresseDAL> adresseList;
 
     @ManyToMany(mappedBy = "utilisateurAffList")

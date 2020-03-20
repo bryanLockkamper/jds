@@ -13,6 +13,6 @@ public class Genre {
 
     private String titre;
 
-    private String desc;
+    private String description;
 
 }

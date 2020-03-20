@@ -10,10 +10,11 @@ import java.util.List;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Utilisateur {
+public class UtilisateurRegister {
 
     private Long id;
     private String pseudo;
+    private String mdp;
     private String email;
     private LocalDate dateNaissance;
     private String genre;

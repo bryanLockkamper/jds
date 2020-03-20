@@ -10,10 +10,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Photo {
-
     private Long id;
     private String lien;
-
-    private Adresse adresse;
-    private Rencontre rencontre;
 }
