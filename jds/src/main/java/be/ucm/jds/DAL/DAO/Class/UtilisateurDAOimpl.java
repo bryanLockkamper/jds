@@ -70,7 +70,7 @@ public class UtilisateurDAOimpl {
         return utilisateurDAO.findByJeuPreferes(jeuDALList);
     }
 
-    public List<UtilisateurDAL> findByRencontreAffId(List<RencontreDAL> rencontreDALList){
+    public List<UtilisateurDAL> findByRencontreAffId(RencontreDAL rencontreDALList){
         return utilisateurDAO.findByRencontreAffList(rencontreDALList);
     }
 
