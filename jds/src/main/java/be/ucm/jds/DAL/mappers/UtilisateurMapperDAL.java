@@ -12,4 +12,8 @@ public class UtilisateurMapperDAL {
     public static UtilisateurDAL utilisateur_To_UtilisateurDAL(Utilisateur utilisateur) {
         return new ModelMapper().map(utilisateur, UtilisateurDAL.class);
     }
+
+    public static UtilisateurDAL utilisateurRegister_To_UtilisateurDAL(UtilisateurRegister utilisateur) {
+        return new ModelMapper().map(utilisateur, UtilisateurDAL.class);
+    }
 }

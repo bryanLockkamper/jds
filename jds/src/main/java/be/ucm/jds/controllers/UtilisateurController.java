@@ -1,6 +1,7 @@
 package be.ucm.jds.controllers;
 
 import be.ucm.jds.BL.Entity.Utilisateur;
+import be.ucm.jds.BL.Entity.UtilisateurRegister;
 import be.ucm.jds.DAL.DAO.Interface.UtilisateurDAO;
 import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import be.ucm.jds.DAL.mappers.UtilisateurMapperDAL;
@@ -23,15 +24,15 @@ public class UtilisateurController {
     }
 
     @PostMapping("/creerUtilisateur")
-    public void creerUtilisateur(@RequestBody Utilisateur utilisateur) {
-        UtilisateurDAL utilisateurDAL = UtilisateurMapperDAL.utilisateur_To_UtilisateurDAL(utilisateur);
+    public void creerUtilisateur(@RequestBody UtilisateurRegister utilisateur) {
+        UtilisateurDAL utilisateurDAL = UtilisateurMapperDAL.utilisateurRegister_To_UtilisateurDAL(utilisateur);
         utilisateurDAO.save(utilisateurDAL);
     }
 
     @PostMapping("/modifierUtilisateur")
-    public void modifierUtilisateur(@RequestBody Utilisateur utilisateur) {
+    public void modifierUtilisateur(@RequestBody UtilisateurRegister utilisateur) {
         if (utilisateur.getId() != null)
-            utilisateurDAO.save(UtilisateurMapperDAL.utilisateur_To_UtilisateurDAL(utilisateur));
+            utilisateurDAO.save(UtilisateurMapperDAL.utilisateurRegister_To_UtilisateurDAL(utilisateur));
     }
 
     @PostMapping("/supprimerUtilisateur")
