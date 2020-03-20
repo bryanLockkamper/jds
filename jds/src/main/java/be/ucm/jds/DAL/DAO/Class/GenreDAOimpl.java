@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class GenreDAOimpl {
+public class GenreDAOimpl{
 
     private GenreDAO genreDAO;
 
@@ -23,7 +23,7 @@ public class GenreDAOimpl {
     }
 
     public List<GenreDAL> findAll(){
-        return genreDAO.findAll();
+        return (List<GenreDAL>) genreDAO.findAll();
     }
 
     public GenreDAL save(GenreDAL genre){
@@ -41,5 +41,9 @@ public class GenreDAOimpl {
 
     public Optional<GenreDAL> findByTitre(String titre){
         return genreDAO.findByTitre(titre);
+    }
+
+    public Optional<GenreDAL> findById(Long id) {
+        return genreDAO.findById(id);
     }
 }

@@ -20,7 +20,7 @@ public class RencontreDAOimpl {
     }
 
     public List<RencontreDAL> findAll(){
-        return rencontreDAO.findAll();
+        return (List<RencontreDAL>) rencontreDAO.findAll();
     }
 
     public RencontreDAL save(RencontreDAL rencontreDAL){

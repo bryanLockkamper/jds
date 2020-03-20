@@ -2,6 +2,7 @@ package be.ucm.jds.controllers;
 
 import be.ucm.jds.BL.Entity.Utilisateur;
 import be.ucm.jds.BL.Entity.UtilisateurRegister;
+import be.ucm.jds.DAL.DAO.Class.UtilisateurDAOimpl;
 import be.ucm.jds.DAL.DAO.Interface.UtilisateurDAO;
 import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import be.ucm.jds.DAL.mappers.UtilisateurMapperDAL;
@@ -16,10 +17,10 @@ import java.util.stream.Collectors;
 @RestController
 public class UtilisateurController {
 
-    UtilisateurDAO utilisateurDAO;
+    UtilisateurDAOimpl utilisateurDAO;
 
     @Autowired
-    public UtilisateurController(UtilisateurDAO utilisateurDAO) {
+    public UtilisateurController(UtilisateurDAOimpl utilisateurDAO) {
         this.utilisateurDAO = utilisateurDAO;
     }
 

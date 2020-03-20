@@ -20,7 +20,7 @@ public class AdresseDAOimpl {
     }
 
     public List<AdresseDAL> all(){
-        return adresseDAO.findAll();
+        return (List<AdresseDAL>) adresseDAO.findAll();
     }
 
     public Boolean deleteById(Long idAdresse){

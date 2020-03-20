@@ -19,7 +19,7 @@ public class PhotoDAOimpl {
     }
 
     public List<PhotoDAL> findAll(){
-        return photoDAO.findAll();
+        return (List<PhotoDAL>) photoDAO.findAll();
     }
 
     public PhotoDAL save(PhotoDAL photoDAL){

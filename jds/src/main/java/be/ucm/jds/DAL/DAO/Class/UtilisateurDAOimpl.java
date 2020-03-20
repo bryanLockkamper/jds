@@ -19,7 +19,7 @@ public class UtilisateurDAOimpl {
     }
 
     public List<UtilisateurDAL> findAll(){
-        return utilisateurDAO.findAll();
+        return (List<UtilisateurDAL>) utilisateurDAO.findAll();
     }
 
     public UtilisateurDAL save(UtilisateurDAL utilisateurDAL){
@@ -49,6 +49,14 @@ public class UtilisateurDAOimpl {
 
     public List<UtilisateurDAL> findByPrenom(String prenom){
         return utilisateurDAO.findByPrenom(prenom);
+    }
+
+    public void deleteById(Long id) {
+        utilisateurDAO.deleteById(id);
+    }
+
+    public Optional<UtilisateurDAL> findById(Long id) {
+        return utilisateurDAO.findById(id);
     }
 
     /*public Optional<UtilisateurDAL> findByNumTel(String numTel){

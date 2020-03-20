@@ -1,6 +1,7 @@
 package be.ucm.jds.controllers;
 
 import be.ucm.jds.BL.Entity.Jeu;
+import be.ucm.jds.DAL.DAO.Class.JeuDAOimpl;
 import be.ucm.jds.DAL.DAO.Interface.JeuDAO;
 import be.ucm.jds.DAL.Entity.JeuDAL;
 import be.ucm.jds.DAL.mappers.JeuMapperDAL;
@@ -15,10 +16,10 @@ import java.util.stream.Collectors;
 @RestController
 public class JeuController {
 
-    JeuDAO jeuDAO;
+    JeuDAOimpl jeuDAO;
 
     @Autowired
-    public JeuController(JeuDAO jeuDAO) {
+    public JeuController(JeuDAOimpl jeuDAO) {
         this.jeuDAO = jeuDAO;
     }
 

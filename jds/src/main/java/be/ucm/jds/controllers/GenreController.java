@@ -1,6 +1,7 @@
 package be.ucm.jds.controllers;
 
 import be.ucm.jds.BL.Entity.Genre;
+import be.ucm.jds.DAL.DAO.Class.GenreDAOimpl;
 import be.ucm.jds.DAL.DAO.Interface.GenreDAO;
 import be.ucm.jds.DAL.mappers.GenreMapperDAL;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,10 @@ import java.util.stream.Collectors;
 @RestController
 public class GenreController {
 
-    GenreDAO genreDAO;
+    GenreDAOimpl genreDAO;
 
     @Autowired
-    public GenreController(GenreDAO genreDAO) {
+    public GenreController(GenreDAOimpl genreDAO) {
         this.genreDAO = genreDAO;
     }
 

@@ -5,6 +5,7 @@ import be.ucm.jds.DAL.Entity.JeuDAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,4 +52,19 @@ public class JeuDAOimpl {
     }
 
 
+    public JeuDAL save(JeuDAL jeuDAL) {
+        return jeuDAO.save(jeuDAL);
+    }
+
+    public void deleteById(Long id) {
+        jeuDAO.deleteById(id);
+    }
+
+    public Optional<JeuDAL> findById(Long id) {
+        return jeuDAO.findById(id);
+    }
+
+    public List<JeuDAL> findAll() {
+        return (List<JeuDAL>) jeuDAO.findAll();
+    }
 }
