@@ -66,15 +66,15 @@ public class UtilisateurDAOimpl {
         return utilisateurDAO.findByNumero(numTel);
     }
 
-    public List<UtilisateurDAL> findByJeuId(List<JeuDAL> jeuDALList){
+    public List<UtilisateurDAL> findByJeuId(JeuDAL jeuDALList){
         return utilisateurDAO.findByJeuPreferes(jeuDALList);
     }
 
-    public List<UtilisateurDAL> findByRencontreAffId(List<RencontreDAL> rencontreDALList){
+    public List<UtilisateurDAL> findByRencontreAffId(RencontreDAL rencontreDALList){
         return utilisateurDAO.findByRencontreAffList(rencontreDALList);
     }
 
-    public Optional<UtilisateurDAL> findByRencontreCreaList(List<RencontreDAL> rencontreDALList){
+    public Optional<UtilisateurDAL> findByRencontreCreaList(RencontreDAL rencontreDALList){
         return utilisateurDAO.findByRencontreCreaList(rencontreDALList);
     }
 }
