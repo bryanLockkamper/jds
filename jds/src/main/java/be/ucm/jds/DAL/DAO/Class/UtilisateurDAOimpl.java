@@ -62,8 +62,4 @@ public class UtilisateurDAOimpl {
     public List<UtilisateurDAL> findByRencontreAffId(Long rencontreId){
         return utilisateurDAO.findByrencontreAffListId(rencontreId);
     }
-
-    public Optional<UtilisateurDAL> findByRencontreCreaId(Long rencontreId){
-        return utilisateurDAO.findByRencontreCreaListId(rencontreId);
-    }
 }
