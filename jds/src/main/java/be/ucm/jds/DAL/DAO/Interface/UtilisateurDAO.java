@@ -4,8 +4,10 @@ import be.ucm.jds.DAL.Entity.JeuDAL;
 import be.ucm.jds.DAL.Entity.RencontreDAL;
 import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -45,6 +47,8 @@ public interface UtilisateurDAO extends JpaRepository<UtilisateurDAL, Long> {
 
     //mise a jour
 
+    @Transactional
+    @Modifying
     @Query("UPDATE Utilisateur SET pseudo = :pseudo WHERE id = :idUtilisateur ")
     void savePseudo(Long idUtilisateur,String pseudo);
 }
