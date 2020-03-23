@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 @CrossOrigin
 @RestController
 public class GenreController {
-
     GenreDAOimpl genreDAO;
 
     @Autowired
