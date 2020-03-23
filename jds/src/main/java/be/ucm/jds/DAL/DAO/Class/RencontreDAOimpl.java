@@ -1,7 +1,9 @@
 package be.ucm.jds.DAL.DAO.Class;
 
+import be.ucm.jds.BL.Entity.Rencontre;
 import be.ucm.jds.DAL.DAO.Interface.RencontreDAO;
 import be.ucm.jds.DAL.Entity.RencontreDAL;
+import be.ucm.jds.DAL.mappers.RencontreMapperDAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,57 +21,65 @@ public class RencontreDAOimpl {
         this.rencontreDAO = rencontreDAO;
     }
 
-    public List<RencontreDAL> findAll(){
+    public List<RencontreDAL> findAll() {
         return rencontreDAO.findAll();
     }
 
-    public RencontreDAL save(RencontreDAL rencontreDAL){
+    public Rencontre findById(Long id) {
+        RencontreDAL rencontreDAL = rencontreDAO.findById(id).orElse(null);
+        if (rencontreDAL != null)
+            return RencontreMapperDAL.rencontreDal_To_Rencontre(rencontreDAL);
+        else
+            return null;
+    }
+
+    public RencontreDAL save(RencontreDAL rencontreDAL) {
         return rencontreDAO.save(rencontreDAL);
     }
 
-    public Boolean deleteById(Long id){
+    public Boolean deleteById(Long id) {
         try {
             rencontreDAO.deleteById(id);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
-    public Boolean deleteByIdUtilisateur(Long idUtilisateur){
+    public Boolean deleteByIdUtilisateur(Long idUtilisateur) {
         try {
             rencontreDAO.deleteByUtilisateurCrea(idUtilisateur);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
-    public List<RencontreDAL> findByTitre(String titre){
+    public List<RencontreDAL> findByTitre(String titre) {
         return rencontreDAO.findByTitre(titre);
     }
 
-    public List<RencontreDAL> findByDate(LocalDate date){
+    public List<RencontreDAL> findByDate(LocalDate date) {
         return rencontreDAO.findByDate(date);
     }
 
-    public List<RencontreDAL> findByTempDeJeu(Integer tempDeJeu){
+    public List<RencontreDAL> findByTempDeJeu(Integer tempDeJeu) {
         return rencontreDAO.findByTempDeJeu(tempDeJeu);
     }
 
-    public List<RencontreDAL> findByNbrParticipantLimite(Integer nbrParticipantLimite){
+    public List<RencontreDAL> findByNbrParticipantLimite(Integer nbrParticipantLimite) {
         return rencontreDAO.findByNbrParticipantLimite(nbrParticipantLimite);
     }
 
-    public List<RencontreDAL> findByUtilisateur(Long idUtilisateur){
+    public List<RencontreDAL> findByUtilisateur(Long idUtilisateur) {
         return rencontreDAO.findByUtilisateurCrea(idUtilisateur);
     }
 
-    public List<RencontreDAL> findByUtlisateurList(Long idUtilisateurParticipants){
+    public List<RencontreDAL> findByUtlisateurList(Long idUtilisateurParticipants) {
         return rencontreDAO.findByUtilisateurAffList(idUtilisateurParticipants);
     }
 
-    public List<RencontreDAL> findByJeu(Long idJeu){
+    public List<RencontreDAL> findByJeu(Long idJeu) {
         return rencontreDAO.findByJeuList(idJeu);
     }
 

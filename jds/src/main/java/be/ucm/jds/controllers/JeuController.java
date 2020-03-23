@@ -26,7 +26,6 @@ public class JeuController {
     @PostMapping("/creerJeu")
     public void creerJeu(@RequestBody Jeu jeu) {
         JeuDAL jeuDAL = JeuMapperDAL.jeu_To_JeuDAL(jeu);
-        System.out.println();
         jeuDAO.save(jeuDAL);
     }
 

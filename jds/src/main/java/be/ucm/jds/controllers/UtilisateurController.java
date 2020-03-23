@@ -1,5 +1,6 @@
 package be.ucm.jds.controllers;
 
+import be.ucm.jds.BL.Entity.Jeu;
 import be.ucm.jds.BL.Entity.Utilisateur;
 import be.ucm.jds.BL.Entity.UtilisateurRegister;
 import be.ucm.jds.DAL.DAO.Class.UtilisateurDAOimpl;
@@ -53,5 +54,25 @@ public class UtilisateurController {
                 .map(UtilisateurMapperDAL::utilisateurDAL_To_Utilisateur)
                 .collect(Collectors.toList())
                 ;
+    }
+
+    @PostMapping("addJeuPrefere")
+    public void addJeuPref(@RequestBody Jeu jeu) {
+
+    }
+
+    @PostMapping("removeJeuPrefere")
+    public void removeJeuPref(@RequestBody Long id) {
+
+    }
+
+    @PostMapping("addAdresse")
+    public void addAdresse(@RequestBody Jeu jeu) {
+
+    }
+
+    @PostMapping("removeAdresse")
+    public void removeAdresse(@RequestBody Long id) {
+
     }
 }

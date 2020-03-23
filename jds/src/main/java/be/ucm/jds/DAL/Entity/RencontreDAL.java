@@ -24,7 +24,7 @@ public class RencontreDAL {
     private LocalDate date;
     private Integer tempDeJeu;
     private Integer nbrParticipantLimite;
-    private String descr;
+    private String description;
 
     @OneToOne
     private PhotoDAL photo;
