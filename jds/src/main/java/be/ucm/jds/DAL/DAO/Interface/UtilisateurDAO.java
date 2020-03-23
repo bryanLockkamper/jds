@@ -51,4 +51,9 @@ public interface UtilisateurDAO extends JpaRepository<UtilisateurDAL, Long> {
     @Modifying
     @Query("UPDATE Utilisateur SET pseudo = :pseudo WHERE id = :idUtilisateur ")
     void savePseudo(Long idUtilisateur,String pseudo);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE Utilisateur SET jeuPreferes = :jeuDALList WHERE id = :idUtilisateur ")
+    void saveJeuPreferes(Long idUtilisateur,List<JeuDAL> jeuDALList);
 }
