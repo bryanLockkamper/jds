@@ -45,6 +45,6 @@ public interface UtilisateurDAO extends JpaRepository<UtilisateurDAL, Long> {
 
     //mise a jour
 
-    @Query("INSERT INTO Utilisateur (pseudo) VALUES (:idUtilisateur) WHERE id = :pseudo ")
+    @Query("UPDATE Utilisateur SET pseudo = :pseudo WHERE id = :idUtilisateur ")
     void savePseudo(Long idUtilisateur,String pseudo);
 }
