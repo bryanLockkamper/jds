@@ -1,6 +1,5 @@
 package be.ucm.jds.DAL.DAO.Class;
 
-import be.ucm.jds.BL.Entity.Utilisateur;
 import be.ucm.jds.DAL.DAO.Interface.UtilisateurDAO;
 import be.ucm.jds.DAL.Entity.JeuDAL;
 import be.ucm.jds.DAL.Entity.RencontreDAL;

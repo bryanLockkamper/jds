@@ -4,7 +4,6 @@ import be.ucm.jds.BL.Entity.Jeu;
 import be.ucm.jds.BL.Entity.Utilisateur;
 import be.ucm.jds.BL.Entity.UtilisateurRegister;
 import be.ucm.jds.DAL.DAO.Class.UtilisateurDAOimpl;
-import be.ucm.jds.DAL.DAO.Interface.UtilisateurDAO;
 import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import be.ucm.jds.DAL.mappers.UtilisateurMapperDAL;
 import org.springframework.beans.factory.annotation.Autowired;

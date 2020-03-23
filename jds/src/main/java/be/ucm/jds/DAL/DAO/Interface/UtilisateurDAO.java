@@ -4,8 +4,10 @@ import be.ucm.jds.DAL.Entity.JeuDAL;
 import be.ucm.jds.DAL.Entity.RencontreDAL;
 import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,4 +29,7 @@ public interface UtilisateurDAO extends JpaRepository<UtilisateurDAL, Long> {
     List<UtilisateurDAL> findByRencontreAffList(RencontreDAL rencontreDAL);
 
     Optional<UtilisateurDAL> findByRencontreCreaList(RencontreDAL rencontreDAL);
+
+    @Query("update Utilisateur set rencontreCreaList = :rencontreDALS where id = 1")
+    RencontreDAL addRencontreCrea(List<RencontreDAL> rencontreDALS);
 }
