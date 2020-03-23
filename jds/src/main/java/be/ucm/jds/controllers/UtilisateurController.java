@@ -74,4 +74,9 @@ public class UtilisateurController {
     public void removeAdresse(@RequestBody Long id) {
 
     }
+
+    @PostMapping("updatePseudo")
+    public void removeJeuPref(@RequestBody Utilisateur utilisateur) {
+        utilisateurDAO.updatePseudo(utilisateur.getId(), utilisateur.getPseudo());
+    }
 }

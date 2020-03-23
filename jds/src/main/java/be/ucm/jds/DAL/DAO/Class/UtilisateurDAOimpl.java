@@ -96,8 +96,8 @@ public class UtilisateurDAOimpl {
         return utilisateurDAO.save(utilisateurDAL);
     }
 
-    public void savePseudo(Long idUtilisateur,String pseudo) {
-        utilisateurDAO.savePseudo(idUtilisateur,pseudo);
+    public void updatePseudo(Long id,String pseudo) {
+        utilisateurDAO.savePseudo(pseudo, id);
     }
 
     //delete util ou données
