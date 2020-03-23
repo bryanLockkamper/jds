@@ -7,12 +7,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface UtilisateurDAO extends JpaRepository<UtilisateurDAL, Long> {
+
+    //recherche
 
     List<UtilisateurDAL> findByEmail(String email);
 
@@ -30,6 +31,20 @@ public interface UtilisateurDAO extends JpaRepository<UtilisateurDAL, Long> {
 
     Optional<UtilisateurDAL> findByRencontreCreaList(RencontreDAL rencontreDAL);
 
-    @Query("update Utilisateur set rencontreCreaList = :rencontreDALS where id = 1")
-    RencontreDAL addRencontreCrea(List<RencontreDAL> rencontreDALS);
+    List<UtilisateurDAL> findByPseudoAndNom(String pseudo,String nom);
+
+    List<UtilisateurDAL> findByPseudoAndNumero(String pseudo,String numTel);
+
+    List<UtilisateurDAL> findByPseudoAndPrenom(String pseudo,String prenom);
+
+    List<UtilisateurDAL> findByNomAndPrenom(String nom, String prenom);
+
+    List<UtilisateurDAL> findByNomAndNumero(String nom, String numTel);
+
+    List<UtilisateurDAL> findByPrenomAndNumero(String prenom, String numTel);
+
+    //mise a jour
+
+    @Query("INSERT INTO Utilisateur (pseudo) VALUES (:idUtilisateur) WHERE id = :pseudo ")
+    void savePseudo(Long idUtilisateur,String pseudo);
 }

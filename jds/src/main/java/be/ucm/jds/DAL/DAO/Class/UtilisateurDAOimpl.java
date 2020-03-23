@@ -20,21 +20,10 @@ public class UtilisateurDAOimpl {
         this.utilisateurDAO = utilisateurDAO;
     }
 
+    //recherche
+
     public List<UtilisateurDAL> findAll(){
         return utilisateurDAO.findAll();
-    }
-
-    public UtilisateurDAL save(UtilisateurDAL utilisateurDAL){
-        return utilisateurDAO.save(utilisateurDAL);
-    }
-
-    public Boolean deleteId(Long id){
-        try {
-            utilisateurDAO.deleteById(id);
-            return true;
-        }catch (Exception e){
-            return false;
-        }
     }
 
     public List<UtilisateurDAL> findByEmail(String email){
@@ -75,5 +64,50 @@ public class UtilisateurDAOimpl {
 
     public Optional<UtilisateurDAL> findByRencontreCreaList(RencontreDAL rencontreDALList){
         return utilisateurDAO.findByRencontreCreaList(rencontreDALList);
+    }
+
+    public List<UtilisateurDAL> findByPseudoAndNom(String pseudo,String nom){
+        return utilisateurDAO.findByPseudoAndNom(pseudo,nom);
+    }
+
+    public List<UtilisateurDAL> findByPseudoAndNumero(String pseudo,String numTel){
+        return utilisateurDAO.findByPseudoAndNumero( pseudo, numTel);
+    }
+
+    public List<UtilisateurDAL> findByPseudoAndPrenom(String pseudo,String prenom){
+        return utilisateurDAO.findByPseudoAndPrenom( pseudo, prenom);
+    }
+
+    public List<UtilisateurDAL> findByNomAndPrenom(String nom, String prenom){
+        return utilisateurDAO.findByNomAndPrenom( nom,  prenom);
+    }
+
+    public List<UtilisateurDAL> findByNomAndNumero(String nom, String numTel){
+        return utilisateurDAO.findByNomAndNumero( nom,  numTel);
+    }
+
+    public List<UtilisateurDAL> findByPrenomAndNumero(String prenom, String numTel){
+        return utilisateurDAO.findByPrenomAndNumero( prenom,  numTel);
+    }
+
+    //mise a jour
+
+    public UtilisateurDAL save(UtilisateurDAL utilisateurDAL){
+        return utilisateurDAO.save(utilisateurDAL);
+    }
+
+    public void savePseudo(Long idUtilisateur,String pseudo) {
+        utilisateurDAO.savePseudo(idUtilisateur,pseudo);
+    }
+
+    //delete util ou données
+
+    public Boolean deleteId(Long id){
+        try {
+            utilisateurDAO.deleteById(id);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 }
