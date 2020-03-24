@@ -14,17 +14,15 @@ public class UtilisateurRegister {
 
     private Long id;
     private String pseudo;
-    private String mdp;
+    private String password;
+    private String confirmpassword;
     private String email;
     private LocalDate dateNaissance;
     private String genre;
-    private List<Jeu> jeuPreferes;
     private String nom;
     private String prenom;
     private String description;
     private String numero;
-    private List<Adresse> adresseList;
-    private Photo photo;
-    private List<Rencontre> rencontreAffList;
-    private List<Rencontre> rencontreCreaList;
+    private List<Adresse> adresse;
+
 }
