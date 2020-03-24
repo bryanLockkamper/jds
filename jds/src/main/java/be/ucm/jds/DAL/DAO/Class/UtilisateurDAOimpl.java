@@ -100,8 +100,8 @@ public class UtilisateurDAOimpl {
         utilisateurDAO.savePseudo(pseudo, id);
     }
 
-    public void saveJeuPreferes(Long idUtilisateur,List<JeuDAL> jeuDALList){
-        utilisateurDAO.saveJeuPreferes(idUtilisateur,jeuDALList);
+    public void saveJeuPreferes(Long id,List<JeuDAL> jeuDALList){
+        utilisateurDAO.saveJeuPreferes(jeuDALList, id);
     }
 
     //delete util ou données

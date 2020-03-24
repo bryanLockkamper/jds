@@ -4,11 +4,13 @@ import be.ucm.jds.BL.Entity.Jeu;
 import be.ucm.jds.BL.Entity.Utilisateur;
 import be.ucm.jds.BL.Entity.UtilisateurRegister;
 import be.ucm.jds.DAL.DAO.Class.UtilisateurDAOimpl;
+import be.ucm.jds.DAL.Entity.JeuDAL;
 import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import be.ucm.jds.DAL.mappers.UtilisateurMapperDAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -57,7 +59,8 @@ public class UtilisateurController {
 
     @PostMapping("addJeuPrefere")
     public void addJeuPref(@RequestBody Jeu jeu) {
-
+        List<JeuDAL> jeus = new ArrayList<>();
+        utilisateurDAO.saveJeuPreferes(1L, jeus);
     }
 
     @PostMapping("removeJeuPrefere")
