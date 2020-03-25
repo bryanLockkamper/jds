@@ -51,6 +51,4 @@ public class UtilisateurDAL {
     @OneToMany
     private List<RencontreDAL> rencontreCreaList;
 
-    public UtilisateurDAL(Long id, String pseudo, LocalDate date, String genre, List<JeuDAL> jeuPreferes, String nom, String prenom, String desc, String telephone, List<AdresseDAL> adresseList, PhotoDAL photo, List<RencontreDAL> rencontreList) {
-    }
 }
