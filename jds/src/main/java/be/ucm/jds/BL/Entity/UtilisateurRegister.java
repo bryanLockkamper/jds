@@ -12,17 +12,10 @@ import java.util.List;
 @NoArgsConstructor
 public class UtilisateurRegister {
 
-    private Long id;
     private String pseudo;
     private String password;
     private String confirmpassword;
     private String email;
     private LocalDate dateNaissance;
-    private String genre;
-    private String nom;
-    private String prenom;
-    private String description;
-    private String numero;
-    private List<Adresse> adresse;
 
 }
