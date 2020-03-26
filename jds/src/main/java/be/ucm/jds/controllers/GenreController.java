@@ -40,8 +40,8 @@ public class GenreController {
     }
 
     @PostMapping("/supprimerGenre")
-    public void supprimerGenre(@RequestBody Long id) {
-        genreDAO.deleteById(id);
+    public void supprimerGenre(@RequestBody Genre genre) {
+        genreDAO.deleteById(genre.getId());
     }
 
     @GetMapping("genre/{id}")
