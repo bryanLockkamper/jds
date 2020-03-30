@@ -54,7 +54,6 @@ public class GenreController {
         return genreDAO.findAll()
                 .stream()
                 .map(GenreMapperDAL::genreDAL_To_Genre)
-                .collect(Collectors.toList())
-                ;
+                .collect(Collectors.toList());
     }
 }
