@@ -21,7 +21,7 @@ public class UtilisateurDAL {
     @Column(nullable = false , unique = true)
     private String email;
     @Column(nullable = false)
-    private String mdp;
+    private String password;
     @Column(nullable = false)
     private String pseudo;
     @Column(nullable = false)

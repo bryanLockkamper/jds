@@ -33,9 +33,10 @@ public class UtilisateurController {
     }
 
     @PostMapping("/modifierUtilisateur")
-    public void modifierUtilisateur(@RequestBody UtilisateurRegister utilisateur) {
-        if (utilisateur.getId() != null)
-            utilisateurDAO.save(UtilisateurMapperDAL.utilisateurRegister_To_UtilisateurDAL(utilisateur));
+    public void modifierUtilisateur(@RequestBody Utilisateur utilisateur) {
+        if (utilisateur.getId() != null){
+            //utilisateurDAO.save(UtilisateurMapperDAL.utilisateurRegister_To_UtilisateurDAL(utilisateur));
+        }
     }
 
     @PostMapping("/supprimerUtilisateur")

@@ -26,8 +26,8 @@ public class UtilisateurDAOimpl {
         return utilisateurDAO.findAll();
     }
 
-    public List<UtilisateurDAL> findByEmail(String email){
-        return utilisateurDAO.findByEmail(email);
+    public UtilisateurDAL findByEmail(String email){
+        return utilisateurDAO.findByEmail(email).orElse(null);
     }
 
     public List<UtilisateurDAL> findByPseudo(String pseudo){
@@ -93,6 +93,7 @@ public class UtilisateurDAOimpl {
     //mise a jour
 
     public UtilisateurDAL save(UtilisateurDAL utilisateurDAL){
+        System.out.println(utilisateurDAL.toString());
         return utilisateurDAO.save(utilisateurDAL);
     }
 
