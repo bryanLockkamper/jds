@@ -1,6 +1,7 @@
 package be.ucm.jds.DAL.DAO.Interface;
 
 import be.ucm.jds.DAL.Entity.RencontreDAL;
+import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -20,9 +21,9 @@ public interface RencontreDAO extends JpaRepository<RencontreDAL, Long> {
 
     List<RencontreDAL> findByUtilisateurAffList(Long utilisateurAffListId);
 
-    List<RencontreDAL> findByUtilisateurCrea(Long idUtilisateurParticipants);
+    List<RencontreDAL> findByUtilisateurCrea(Long utilisateurCrea);
 
     List<RencontreDAL> findByJeuList(Long idJeu);
 
-    void deleteByUtilisateurCrea(Long idUtilisateur);
+    void deleteByUtilisateurCrea(Long utilisateurCrea);
 }

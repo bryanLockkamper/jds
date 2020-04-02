@@ -1,9 +1,5 @@
 package be.ucm.jds.DAL.Entity;
 
-import be.ucm.jds.BL.Entity.Adresse;
-import be.ucm.jds.BL.Entity.Jeu;
-import be.ucm.jds.BL.Entity.Photo;
-import be.ucm.jds.BL.Entity.Rencontre;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,7 +21,7 @@ public class UtilisateurDAL {
     @Column(nullable = false , unique = true)
     private String email;
     @Column(nullable = false)
-    private String mdp;
+    private String password;
     @Column(nullable = false)
     private String pseudo;
     @Column(nullable = false)
@@ -48,7 +44,6 @@ public class UtilisateurDAL {
     @ManyToMany(mappedBy = "utilisateurAffList")
     private List<RencontreDAL> rencontreAffList;
 
-    @OneToMany
+    @OneToMany(mappedBy = "utilisateurCrea")
     private List<RencontreDAL> rencontreCreaList;
-
 }

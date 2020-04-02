@@ -29,7 +29,7 @@ public class JeuDAL {
     private String maisonEdition;
     private Integer ageMin;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany
     private List<GenreDAL> genres;
 
     @ManyToMany(mappedBy = "jeuList")

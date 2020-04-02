@@ -10,6 +10,7 @@ import java.util.List;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class UtilisateurRegister {
 
     private Long id;
@@ -24,5 +25,4 @@ public class UtilisateurRegister {
     private String description;
     private String numero;
     private List<Adresse> adresse;
-
 }

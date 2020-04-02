@@ -1,5 +1,6 @@
 package be.ucm.jds.BL.Entity;
 
+import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -22,4 +23,5 @@ public class Rencontre {
     private Photo photo;
     private List<Jeu> jeuList;
     private Utilisateur utilisateurCrea;
+    List<Utilisateur> utilisateurAffList;
 }

@@ -40,8 +40,8 @@ public class GenreController {
     }
 
     @PostMapping("/supprimerGenre")
-    public void supprimerGenre(@RequestBody Long id) {
-        genreDAO.deleteById(id);
+    public void supprimerGenre(@RequestBody Genre genre) {
+        genreDAO.deleteById(genre.getId());
     }
 
     @GetMapping("genre/{id}")
@@ -54,7 +54,6 @@ public class GenreController {
         return genreDAO.findAll()
                 .stream()
                 .map(GenreMapperDAL::genreDAL_To_Genre)
-                .collect(Collectors.toList())
-                ;
+                .collect(Collectors.toList());
     }
 }

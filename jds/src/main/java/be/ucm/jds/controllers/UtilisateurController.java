@@ -4,12 +4,13 @@ import be.ucm.jds.BL.Entity.Jeu;
 import be.ucm.jds.BL.Entity.Utilisateur;
 import be.ucm.jds.BL.Entity.UtilisateurRegister;
 import be.ucm.jds.DAL.DAO.Class.UtilisateurDAOimpl;
-import be.ucm.jds.DAL.DAO.Interface.UtilisateurDAO;
+import be.ucm.jds.DAL.Entity.JeuDAL;
 import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import be.ucm.jds.DAL.mappers.UtilisateurMapperDAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -32,9 +33,10 @@ public class UtilisateurController {
     }
 git
     @PostMapping("/modifierUtilisateur")
-    public void modifierUtilisateur(@RequestBody UtilisateurRegister utilisateur) {
-        if (utilisateur.getId() != null)
-            utilisateurDAO.save(UtilisateurMapperDAL.utilisateurRegister_To_UtilisateurDAL(utilisateur));
+    public void modifierUtilisateur(@RequestBody Utilisateur utilisateur) {
+        if (utilisateur.getId() != null){
+            //utilisateurDAO.save(UtilisateurMapperDAL.utilisateurRegister_To_UtilisateurDAL(utilisateur));
+        }
     }
 
     @PostMapping("/supprimerUtilisateur")
@@ -58,7 +60,8 @@ git
 
     @PostMapping("addJeuPrefere")
     public void addJeuPref(@RequestBody Jeu jeu) {
-
+        List<JeuDAL> jeus = new ArrayList<>();
+        utilisateurDAO.saveJeuPreferes(1L, jeus);
     }
 
     @PostMapping("removeJeuPrefere")
@@ -74,5 +77,10 @@ git
     @PostMapping("removeAdresse")
     public void removeAdresse(@RequestBody Long id) {
 
+    }
+
+    @PostMapping("updatePseudo")
+    public void removeJeuPref(@RequestBody Utilisateur utilisateur) {
+        utilisateurDAO.updatePseudo(utilisateur.getId(), utilisateur.getPseudo());
     }
 }

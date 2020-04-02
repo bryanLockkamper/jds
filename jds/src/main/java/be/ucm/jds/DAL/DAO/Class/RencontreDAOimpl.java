@@ -71,8 +71,8 @@ public class RencontreDAOimpl {
         return rencontreDAO.findByNbrParticipantLimite(nbrParticipantLimite);
     }
 
-    public List<RencontreDAL> findByUtilisateur(Long idUtilisateur) {
-        return rencontreDAO.findByUtilisateurCrea(idUtilisateur);
+    public List<RencontreDAL> findByUtilisateur(Long id) {
+        return rencontreDAO.findByUtilisateurCrea(id);
     }
 
     public List<RencontreDAL> findByUtlisateurList(Long idUtilisateurParticipants) {
