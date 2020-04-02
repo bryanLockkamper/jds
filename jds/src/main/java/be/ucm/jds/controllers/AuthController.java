@@ -1,6 +1,5 @@
 package be.ucm.jds.controllers;
 
-import be.ucm.jds.BL.Entity.Jeu;
 import be.ucm.jds.BL.Entity.Utilisateur;
 import be.ucm.jds.BL.Entity.UtilisateurLogin;
 import be.ucm.jds.BL.Entity.UtilisateurRegister;
@@ -14,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+
 @CrossOrigin
 @RestController
 public class AuthController {
@@ -26,11 +27,13 @@ public class AuthController {
 
     @PostMapping("/seConnecter")
     public ResponseEntity<Utilisateur> seConnecter(@RequestBody UtilisateurLogin utilisateur) {
-        //jeuDAL.save(jeu);
-        //chercher user dans la db et puis le stocker dans le LocalStorage
-        System.out.println(utilisateur);
         UtilisateurDAL utilisateurDAL = utilisateurDAOimpl.findByEmail(utilisateur.getEmail());
-        return ResponseEntity.ok(UtilisateurMapperDAL.utilisateurDAL_To_Utilisateur(utilisateurDAL));
+        if (utilisateurDAL != null) {
+
+            if (verifierMdp(utilisateur.getPassword()))
+                return ResponseEntity.ok(UtilisateurMapperDAL.utilisateurDAL_To_Utilisateur(utilisateurDAL));
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @PostMapping("/seDeconnecter")
@@ -46,8 +49,30 @@ public class AuthController {
     }
 
     @PostMapping("/inscription")
-    public void inscription(@RequestBody UtilisateurRegister utilisateur) {
+    public ResponseEntity<Utilisateur> inscription(@RequestBody UtilisateurRegister utilisateur) {
+        if (utilisateurDAOimpl.findByEmail(utilisateur.getEmail()) == null
+                && utilisateur.getPassword().equals(utilisateur.getConfirmpassword())
+                && LocalDate.now().minusYears(18).isAfter(utilisateur.getDateNaissance())) {
 
-        utilisateurDAOimpl.save(UtilisateurMapperDAL.utilisateurRegister_To_UtilisateurDAL(utilisateur));
+            if (verifierMdp(utilisateur.getPassword()))
+                return ResponseEntity.ok(UtilisateurMapperDAL.utilisateurDAL_To_Utilisateur(utilisateurDAOimpl.save(UtilisateurMapperDAL.utilisateurRegister_To_UtilisateurDAL(utilisateur))));
+
+
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    private boolean verifierMdp(String mdp) {
+        boolean containsMajuscule = false;
+        boolean containsNumber = false;
+        for (int i = 0; i < mdp.length() & (!containsMajuscule | !containsNumber); i++) {
+            char c = mdp.charAt(i);
+            if (c > 'A' & c < 'Z')
+                containsMajuscule = true;
+
+            if (c > '0' & c < '9')
+                containsNumber = true;
+        }
+        return containsMajuscule & containsNumber & mdp.length() >= 8;
     }
 }

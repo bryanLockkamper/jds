@@ -10,6 +10,7 @@ import java.util.List;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class UtilisateurRegister {
 
     private Long id;
