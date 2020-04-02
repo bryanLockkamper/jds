@@ -46,6 +46,14 @@ public interface UtilisateurDAO extends JpaRepository<UtilisateurDAL, Long> {
 
     List<UtilisateurDAL> findByPrenomAndNumero(String prenom, String numTel);
 
+    List<UtilisateurDAL> findByPseudoAndNomAndNumero(String pseudo, String nom, String numTel);
+
+    List<UtilisateurDAL> findByPseudoAndNomAndPrenom(String pseudo, String nom, String prenom);
+
+    List<UtilisateurDAL> findByNumeroAndNomAndPrenom(String numTel, String nom,String prenom);
+
+    List<UtilisateurDAL> findByNumeroAndNomAndPrenomAndPseudo(String numTel, String nom,String prenom,String pseudo);
+
     //mise a jour
 
     @Modifying
@@ -55,6 +63,34 @@ public interface UtilisateurDAO extends JpaRepository<UtilisateurDAL, Long> {
     @Modifying
     @Query("UPDATE Utilisateur SET nom = :nom WHERE id = :idUtilisateur ")
     void saveNom(Long idUtilisateur,String nom);
+
+    @Modifying
+    @Query("UPDATE Utilisateur SET prenom = :prenom WHERE id = :idUtilisateur ")
+    void savePrenom(Long idUtilisateur,String prenom);
+
+    @Modifying
+    @Query("UPDATE Utilisateur SET numero = :numero WHERE id = :idUtilisateur ")
+    void saveNumero(Long idUtilisateur,String numero);
+
+    @Modifying
+    @Query("UPDATE Utilisateur SET mdp = :mdp WHERE id = :idUtilisateur ")
+    void saveMdp(Long idUtilisateur,String mdp);
+
+    @Modifying
+    @Query("UPDATE Utilisateur SET description = :description WHERE id = :idUtilisateur ")
+    void saveDescription(Long idUtilisateur,String description);
+
+    @Modifying
+    @Query("UPDATE Utilisateur SET genre = :genre WHERE id = :idUtilisateur ")
+    void saveGenre(Long idUtilisateur,String genre);
+
+    @Modifying
+    @Query("UPDATE Utilisateur SET dateNaissance = :dateNaissance WHERE id = :idUtilisateur ")
+    void saveDateNaissance(Long idUtilisateur,String dateNaissance);
+
+    @Modifying
+    @Query("UPDATE Utilisateur SET email = :email WHERE id = :idUtilisateur ")
+    void saveEmail(Long idUtilisateur,String email);
 
     @Modifying
     @Query("UPDATE Utilisateur SET jeuPreferes = :jeuDALList WHERE id = :idUtilisateur ")

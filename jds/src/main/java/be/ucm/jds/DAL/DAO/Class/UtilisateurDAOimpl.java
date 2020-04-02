@@ -6,6 +6,8 @@ import be.ucm.jds.DAL.Entity.JeuDAL;
 import be.ucm.jds.DAL.Entity.RencontreDAL;
 import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -91,6 +93,22 @@ public class UtilisateurDAOimpl {
         return utilisateurDAO.findByPrenomAndNumero( prenom,  numTel);
     }
 
+    public List<UtilisateurDAL> findByPseudoAndNomAndNumero(String pseudo, String nom, String numTel){
+        return utilisateurDAO.findByPseudoAndNomAndNumero( pseudo,  nom,  numTel);
+    }
+
+    public List<UtilisateurDAL> findByPseudoAndNomAndPrenom(String pseudo, String nom, String prenom){
+        return utilisateurDAO.findByPseudoAndNomAndPrenom( pseudo,  nom,  prenom);
+    }
+
+    public List<UtilisateurDAL> findByNumeroAndNomAndPrenom(String numTel, String nom,String prenom){
+        return utilisateurDAO.findByNumeroAndNomAndPrenom( numTel,  nom, prenom);
+    }
+
+    public List<UtilisateurDAL> findByNumeroAndNomAndPrenomAndPseudo(String numTel, String nom,String prenom,String pseudo){
+        return utilisateurDAO.findByNumeroAndNomAndPrenomAndPseudo( numTel,  nom, prenom, pseudo);
+    }
+
     //mise a jour
 
     public UtilisateurDAL save(UtilisateurDAL utilisateurDAL){
@@ -99,6 +117,38 @@ public class UtilisateurDAOimpl {
 
     public void savePseudo(Long idUtilisateur,String pseudo) {
         utilisateurDAO.savePseudo(idUtilisateur,pseudo);
+    }
+
+    public void saveNom(Long idUtilisateur,String nom){
+        utilisateurDAO.saveNom( idUtilisateur, nom);
+    }
+
+    public void savePrenom(Long idUtilisateur,String prenom){
+        utilisateurDAO.savePrenom( idUtilisateur, prenom);
+    }
+
+    public void saveNumero(Long idUtilisateur,String numero){
+        utilisateurDAO.saveNumero( idUtilisateur, numero);
+    }
+
+    public void saveMdp(Long idUtilisateur,String mdp){
+        utilisateurDAO.saveMdp( idUtilisateur, mdp);
+    }
+
+    public void saveDescription(Long idUtilisateur,String description){
+        utilisateurDAO.saveDescription( idUtilisateur, description);
+    }
+
+    public void saveGenre(Long idUtilisateur,String genre){
+        utilisateurDAO.saveGenre( idUtilisateur, genre);
+    }
+
+    public void saveDateNaissance(Long idUtilisateur,String dateNaissance){
+        utilisateurDAO.saveDateNaissance( idUtilisateur, dateNaissance);
+    }
+
+    public void saveEmail(Long idUtilisateur,String email){
+        utilisateurDAO.saveEmail( idUtilisateur, email);
     }
 
     public void saveJeuPreferes(Long idUtilisateur,List<JeuDAL> jeuDALList){
