@@ -28,7 +28,6 @@ public class AuthController {
     public ResponseEntity<Utilisateur> seConnecter(@RequestBody UtilisateurLogin utilisateur) {
         //jeuDAL.save(jeu);
         //chercher user dans la db et puis le stocker dans le LocalStorage
-        System.out.println(utilisateur);
         UtilisateurDAL utilisateurDAL = utilisateurDAOimpl.findByEmail(utilisateur.getEmail());
         return ResponseEntity.ok(UtilisateurMapperDAL.utilisateurDAL_To_Utilisateur(utilisateurDAL));
     }
