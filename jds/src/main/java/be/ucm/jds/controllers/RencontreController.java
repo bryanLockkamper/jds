@@ -50,7 +50,6 @@ public class RencontreController {
         return rencontreDAOimpl.findAll()
                 .stream()
                 .map(RencontreMapperDAL::rencontreDal_To_Rencontre)
-                .collect(Collectors.toList())
-                ;
+                .collect(Collectors.toList());
     }
 }
