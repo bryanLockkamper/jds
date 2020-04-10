@@ -7,7 +7,7 @@ public class VerificateurCreationRencontre {
         return rencontre.getTitre() != null
                 && rencontre.getAdresse() != null
                 && rencontre.getDate() != null
-                && rencontre.getTempDeJeu() > 0
+                && rencontre.getTempsDeJeu() > 0
                 && rencontre.getNbrParticipantLimite() > 0
                 && rencontre.getJeuList().size() > 0
                 && rencontre.getUtilisateurCrea().getId() > 0;

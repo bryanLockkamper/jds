@@ -15,7 +15,7 @@ public interface RencontreDAO extends JpaRepository<RencontreDAL, Long> {
 
     List<RencontreDAL> findByDate(LocalDate date);
 
-    List<RencontreDAL> findByTempDeJeu(Integer tempDeJeu);
+    List<RencontreDAL> findByTempsDeJeu(Integer tempDeJeu);
 
     List<RencontreDAL> findByNbrParticipantLimite(Integer nbrParticipantLimite);
 

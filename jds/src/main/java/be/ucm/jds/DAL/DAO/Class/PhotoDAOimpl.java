@@ -43,7 +43,4 @@ public class PhotoDAOimpl {
         return photoDAO.findByAdresseId(adresseId);
     }
 
-    public Optional<PhotoDAL> findByRencontreId(Long rencontreId){
-        return photoDAO.findByRencontreId(rencontreId);
-    }
 }

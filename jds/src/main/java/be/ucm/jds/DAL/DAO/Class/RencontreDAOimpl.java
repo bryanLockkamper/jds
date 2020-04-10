@@ -64,7 +64,7 @@ public class RencontreDAOimpl {
     }
 
     public List<RencontreDAL> findByTempDeJeu(Integer tempDeJeu) {
-        return rencontreDAO.findByTempDeJeu(tempDeJeu);
+        return rencontreDAO.findByTempsDeJeu(tempDeJeu);
     }
 
     public List<RencontreDAL> findByNbrParticipantLimite(Integer nbrParticipantLimite) {

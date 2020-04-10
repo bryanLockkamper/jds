@@ -80,7 +80,7 @@ public class UtilisateurController {
     }
 
     @PostMapping("updatePseudo")
-    public void removeJeuPref(@RequestBody Utilisateur utilisateur) {
+    public void updatePseudo(@RequestBody Utilisateur utilisateur) {
         utilisateurDAO.updatePseudo(utilisateur.getId(), utilisateur.getPseudo());
     }
 }
