@@ -16,7 +16,7 @@ public class Rencontre {
     private Long id;
     private String titre;
     private LocalDate date;
-    private int tempDeJeu;
+    private int tempsDeJeu;
     private Integer nbrParticipantLimite;
     private Adresse adresse;
     private String description;

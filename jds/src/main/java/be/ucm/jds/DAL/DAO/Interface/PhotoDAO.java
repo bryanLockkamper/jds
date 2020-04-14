@@ -12,6 +12,4 @@ public interface PhotoDAO extends JpaRepository<PhotoDAL, Long> {
     Optional<PhotoDAL> findByLien(String lien);
 
     Optional<PhotoDAL> findByAdresseId(Long adresseId);
-
-    Optional<PhotoDAL> findByRencontreId(Long rencontreId);
 }

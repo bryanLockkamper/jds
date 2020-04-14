@@ -22,14 +22,14 @@ public class RencontreDAL {
     private String titre;
 
     private LocalDate date;
-    private Integer tempDeJeu;
+    private Integer tempsDeJeu;
     private Integer nbrParticipantLimite;
     private String description;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private PhotoDAL photo;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private AdresseDAL adresse;
 
     @ManyToOne

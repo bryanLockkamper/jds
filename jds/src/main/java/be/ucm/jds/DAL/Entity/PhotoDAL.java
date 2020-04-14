@@ -19,11 +19,10 @@ public class PhotoDAL {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Lob
+    @Column(length = 100000)
     private String lien;
 
     @ManyToOne
     private AdresseDAL adresse;
-
-    @OneToOne
-    private RencontreDAL rencontre;
 }

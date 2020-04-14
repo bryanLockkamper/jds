@@ -26,9 +26,7 @@ public class AdresseDAL {
     @ManyToMany(mappedBy = "adresseList")
     private List<UtilisateurDAL> utilisateurList;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private List<PhotoDAL> photos;
 
-    @OneToOne
-    private RencontreDAL rencontre;
 }
