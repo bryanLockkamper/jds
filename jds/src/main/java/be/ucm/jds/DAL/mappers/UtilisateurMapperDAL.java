@@ -16,4 +16,16 @@ public class UtilisateurMapperDAL {
     public static UtilisateurDAL utilisateurRegister_To_UtilisateurDAL(UtilisateurRegister utilisateur) {
         return new ModelMapper().map(utilisateur, UtilisateurDAL.class);
     }
+    public static  UtilisateurDAL utilisateur_to_utilisateurDAL_upDate(Utilisateur utilisateur,UtilisateurDAL utilisateurDAL){
+        utilisateurDAL.setEmail(utilisateur.getEmail());
+        utilisateurDAL.setPseudo(utilisateur.getPseudo());
+        if(utilisateur.getPhoto() != null) utilisateurDAL.setPhoto(PhotoMapperDAL.photo_To_PhotoDAL(utilisateur.getPhoto()));
+        utilisateurDAL.setDateNaissance(utilisateur.getDateNaissance());
+        utilisateurDAL.setGenre(utilisateur.getGenre());
+        utilisateurDAL.setNom(utilisateur.getNom());
+        utilisateurDAL.setPrenom(utilisateur.getPrenom());
+        utilisateurDAL.setNumero(utilisateur.getNumero());
+        utilisateurDAL.setDescription(utilisateur.getDescription());
+        return utilisateurDAL;
+    }
 }

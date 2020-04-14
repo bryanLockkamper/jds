@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @CrossOrigin
@@ -31,11 +32,12 @@ public class UtilisateurController {
         UtilisateurDAL utilisateurDAL = UtilisateurMapperDAL.utilisateurRegister_To_UtilisateurDAL(utilisateur);
         utilisateurDAO.save(utilisateurDAL);
     }
-git
+
     @PostMapping("/modifierUtilisateur")
     public void modifierUtilisateur(@RequestBody Utilisateur utilisateur) {
-        if (utilisateur.getId() != null){
-            //utilisateurDAO.save(UtilisateurMapperDAL.utilisateurRegister_To_UtilisateurDAL(utilisateur));
+        UtilisateurDAL utilisateurDAL = utilisateurDAO.findById(utilisateur.getId()).orElse(null);
+        if (utilisateurDAL != null){
+            utilisateurDAO.save( UtilisateurMapperDAL.utilisateur_to_utilisateurDAL_upDate(utilisateur,utilisateurDAL) );
         }
     }
 
@@ -80,7 +82,7 @@ git
     }
 
     @PostMapping("updatePseudo")
-    public void removeJeuPref(@RequestBody Utilisateur utilisateur) {
+    public void updatePseudo(@RequestBody Utilisateur utilisateur) {
         utilisateurDAO.updatePseudo(utilisateur.getId(), utilisateur.getPseudo());
     }
 }

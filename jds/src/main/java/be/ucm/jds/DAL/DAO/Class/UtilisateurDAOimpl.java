@@ -165,4 +165,6 @@ public class UtilisateurDAOimpl {
             return false;
         }
     }
+
+    public void updatePseudo(Long id,String pseudo) {         utilisateurDAO.savePseudo(id, pseudo);     }
 }
