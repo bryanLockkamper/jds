@@ -3,6 +3,7 @@ package be.ucm.jds.DAL.DAO.Interface;
 import be.ucm.jds.DAL.Entity.RencontreDAL;
 import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
