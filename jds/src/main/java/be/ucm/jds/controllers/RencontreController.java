@@ -52,4 +52,13 @@ public class RencontreController {
                 .map(RencontreMapperDAL::rencontreDal_To_Rencontre)
                 .collect(Collectors.toList());
     }
+
+    @GetMapping("actualRencontres")
+    public List<Rencontre> getActualRencontre() {
+        return rencontreDAOimpl.findAll()
+                .stream()
+                .filter(rencontre -> rencontre.getDate().isAfter(LocalDate.now()))
+                .map(RencontreMapperDAL::rencontreDal_To_Rencontre)
+                .collect(Collectors.toList());
+    }
 }

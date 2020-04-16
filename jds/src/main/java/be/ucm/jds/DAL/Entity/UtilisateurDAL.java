@@ -46,4 +46,7 @@ public class UtilisateurDAL {
 
     @OneToMany(mappedBy = "utilisateurCrea")
     private List<RencontreDAL> rencontreCreaList;
+
+    @ManyToMany(mappedBy = "utilisateurDALList")
+    private List<RoleDAL> roleList;
 }

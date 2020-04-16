@@ -24,4 +24,5 @@ public class Utilisateur {
     private String numero;
     private List<Adresse> adresseList;
     private Photo photo;
+    private List<Role> roles;
 }
