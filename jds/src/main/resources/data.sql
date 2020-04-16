@@ -12,4 +12,4 @@ Insert into Rencontre ( Date, Description, Nbr_Participant_Limite, Temps_De_Jeu,
 
 Insert into Role (Nom) values ('Admin'), ('UtilisateurLambda');
 
-Insert into Role_UtilisateurDalList (Role_List_Id, UtilisateurDalList_Id ) values (1,1) , (2,1);
+Insert into Role_UtilisateurDalList (Roles_Id, UtilisateurDalList_Id ) values (1,1) , (2,1);

@@ -8,11 +8,7 @@ import be.ucm.jds.DAL.mappers.RencontreMapperDAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.ZoneId;
-import java.time.ZoneOffset;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.util.Date;
+import java.time.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -62,7 +58,7 @@ public class RencontreController {
     public List<Rencontre> getActualRencontre() {
         return rencontreDAOimpl.findAll()
                 .stream()
-                .filter(rencontre -> rencontre.getDate().isAfter(LocalDate.now()))
+                .filter(rencontre -> rencontre.getDate().isAfter(LocalDateTime.now()))
                 .map(RencontreMapperDAL::rencontreDal_To_Rencontre)
                 .collect(Collectors.toList());
     }
