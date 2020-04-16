@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @AllArgsConstructor
@@ -21,7 +22,7 @@ public class RencontreDAL {
 
     private String titre;
 
-    private LocalDate date;
+    private LocalDateTime date;
     private Integer tempsDeJeu;
     private Integer nbrParticipantLimite;
     private String description;
