@@ -90,8 +90,8 @@ public class UtilisateurDAOimpl {
         return utilisateurDAO.findByPrenomAndNumero( prenom,  numTel);
     }
 
-    public List<UtilisateurDAL> findByRoleList(String role){
-        return utilisateurDAO.findByRoleList(role);
+    public List<UtilisateurDAL> findByRole(String role){
+        return utilisateurDAO.findByRoles(role);
     }
 
     //mise a jour

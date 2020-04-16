@@ -87,7 +87,7 @@ public class UtilisateurController {
 
     @GetMapping("utilisateurRoles")
     public List<Utilisateur> getUtilisateurRole(@RequestBody String  role){
-        return utilisateurDAO.findByRoleList(role).stream()
+        return utilisateurDAO.findByRole(role).stream()
                 .map(UtilisateurMapperDAL::utilisateurDAL_To_Utilisateur)
                 .collect(Collectors.toList());
     }
