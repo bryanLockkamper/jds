@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.ZoneId;
 import java.time.ZoneOffset;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,6 +54,15 @@ public class RencontreController {
     public List<Rencontre> getAllRencontre() {
         return rencontreDAOimpl.findAll()
                 .stream()
+                .map(RencontreMapperDAL::rencontreDal_To_Rencontre)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("actualRencontres")
+    public List<Rencontre> getActualRencontre() {
+        return rencontreDAOimpl.findAll()
+                .stream()
+                .filter(rencontre -> rencontre.getDate().isAfter(LocalDate.now()))
                 .map(RencontreMapperDAL::rencontreDal_To_Rencontre)
                 .collect(Collectors.toList());
     }

@@ -1,6 +1,7 @@
 package be.ucm.jds.controllers;
 
 import be.ucm.jds.BL.Entity.Jeu;
+import be.ucm.jds.BL.Entity.Role;
 import be.ucm.jds.BL.Entity.Utilisateur;
 import be.ucm.jds.BL.Entity.UtilisateurRegister;
 import be.ucm.jds.DAL.DAO.Class.UtilisateurDAOimpl;
@@ -82,5 +83,12 @@ public class UtilisateurController {
     @PostMapping("updatePseudo")
     public void updatePseudo(@RequestBody Utilisateur utilisateur) {
         utilisateurDAO.updatePseudo(utilisateur.getId(), utilisateur.getPseudo());
+    }
+
+    @GetMapping("utilisateurRoles")
+    public List<Utilisateur> getUtilisateurRole(@RequestBody String  role){
+        return utilisateurDAO.findByRoleList(role).stream()
+                .map(UtilisateurMapperDAL::utilisateurDAL_To_Utilisateur)
+                .collect(Collectors.toList());
     }
 }
