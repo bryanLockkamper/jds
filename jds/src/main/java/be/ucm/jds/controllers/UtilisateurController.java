@@ -1,11 +1,10 @@
 package be.ucm.jds.controllers;
 
-import be.ucm.jds.BL.Entity.Jeu;
-import be.ucm.jds.BL.Entity.Role;
-import be.ucm.jds.BL.Entity.Utilisateur;
-import be.ucm.jds.BL.Entity.UtilisateurRegister;
+import be.ucm.jds.BL.Entity.*;
+import be.ucm.jds.DAL.DAO.Class.RoleDAOImpl;
 import be.ucm.jds.DAL.DAO.Class.UtilisateurDAOimpl;
 import be.ucm.jds.DAL.Entity.JeuDAL;
+import be.ucm.jds.DAL.Entity.RoleDAL;
 import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import be.ucm.jds.DAL.mappers.UtilisateurMapperDAL;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @CrossOrigin
@@ -21,15 +21,22 @@ import java.util.stream.Collectors;
 public class UtilisateurController {
 
     UtilisateurDAOimpl utilisateurDAO;
+    RoleDAOImpl roleDAO;
 
     @Autowired
-    public UtilisateurController(UtilisateurDAOimpl utilisateurDAO) {
+    public UtilisateurController(UtilisateurDAOimpl utilisateurDAO, RoleDAOImpl roleDAO) {
         this.utilisateurDAO = utilisateurDAO;
+        this.roleDAO = roleDAO;
     }
 
     @PostMapping("/creerUtilisateur")
     public void creerUtilisateur(@RequestBody UtilisateurRegister utilisateur) {
+        Long roleId = 2L;
         UtilisateurDAL utilisateurDAL = UtilisateurMapperDAL.utilisateurRegister_To_UtilisateurDAL(utilisateur);
+        Optional<RoleDAL> roles = roleDAO.findById(roleId);
+        List<RoleDAL> roleDALList = new ArrayList<>();
+        roleDALList.add(roles.orElse(null));
+        utilisateurDAL.setRoles(roleDALList);
         utilisateurDAO.save(utilisateurDAL);
     }
 
