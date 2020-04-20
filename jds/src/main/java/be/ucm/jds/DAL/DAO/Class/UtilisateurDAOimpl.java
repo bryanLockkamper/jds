@@ -1,5 +1,4 @@
 package be.ucm.jds.DAL.DAO.Class;
-
 import be.ucm.jds.BL.Entity.Utilisateur;
 import be.ucm.jds.DAL.DAO.Interface.UtilisateurDAO;
 import be.ucm.jds.DAL.Entity.JeuDAL;
@@ -91,6 +90,10 @@ public class UtilisateurDAOimpl {
 
     public List<UtilisateurDAL> findByPrenomAndNumero(String prenom, String numTel){
         return utilisateurDAO.findByPrenomAndNumero( prenom,  numTel);
+    }
+
+    public List<UtilisateurDAL> findByRole(String role){
+        return utilisateurDAO.findByRoles(role);
     }
 
     public List<UtilisateurDAL> findByPseudoAndNomAndNumero(String pseudo, String nom, String numTel){

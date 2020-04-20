@@ -4,6 +4,7 @@ import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -15,7 +16,7 @@ public class Rencontre {
 
     private Long id;
     private String titre;
-    private LocalDate date;
+    private LocalDateTime date;
     private int tempsDeJeu;
     private Integer nbrParticipantLimite;
     private Adresse adresse;

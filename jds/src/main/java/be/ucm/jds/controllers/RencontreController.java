@@ -8,6 +8,7 @@ import be.ucm.jds.DAL.mappers.RencontreMapperDAL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -49,6 +50,15 @@ public class RencontreController {
     public List<Rencontre> getAllRencontre() {
         return rencontreDAOimpl.findAll()
                 .stream()
+                .map(RencontreMapperDAL::rencontreDal_To_Rencontre)
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("actualRencontres")
+    public List<Rencontre> getActualRencontre() {
+        return rencontreDAOimpl.findAll()
+                .stream()
+                .filter(rencontre -> rencontre.getDate().isAfter(LocalDateTime.now()))
                 .map(RencontreMapperDAL::rencontreDal_To_Rencontre)
                 .collect(Collectors.toList());
     }

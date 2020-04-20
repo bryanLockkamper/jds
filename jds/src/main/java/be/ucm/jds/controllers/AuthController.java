@@ -28,6 +28,7 @@ public class AuthController {
     @PostMapping("/seConnecter")
     public ResponseEntity<Utilisateur> seConnecter(@RequestBody UtilisateurLogin utilisateur) {
         UtilisateurDAL utilisateurDAL = (UtilisateurDAL) utilisateurDAOimpl.findByEmail(utilisateur.getEmail());
+        System.out.println(utilisateur);
         if (utilisateurDAL != null) {
 
             if (verifierMdp(utilisateur.getPassword()))

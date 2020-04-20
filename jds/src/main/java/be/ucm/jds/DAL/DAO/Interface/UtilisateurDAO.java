@@ -54,6 +54,8 @@ public interface UtilisateurDAO extends JpaRepository<UtilisateurDAL, Long> {
 
     List<UtilisateurDAL> findByNumeroAndNomAndPrenomAndPseudo(String numTel, String nom,String prenom,String pseudo);
 
+    List<UtilisateurDAL> findByRoles(String role);
+
     //mise a jour
 
     @Modifying

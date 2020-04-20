@@ -3,6 +3,7 @@ package be.ucm.jds.DAL.DAO.Interface;
 import be.ucm.jds.DAL.Entity.RencontreDAL;
 import be.ucm.jds.DAL.Entity.UtilisateurDAL;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -24,6 +25,8 @@ public interface RencontreDAO extends JpaRepository<RencontreDAL, Long> {
     List<RencontreDAL> findByUtilisateurCrea(Long utilisateurCrea);
 
     List<RencontreDAL> findByJeuList(Long idJeu);
+
+
 
     void deleteByUtilisateurCrea(Long utilisateurCrea);
 }
