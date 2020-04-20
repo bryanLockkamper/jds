@@ -8,4 +8,4 @@ Insert into Jeu_Genres (jeu_list_id, genres_id) values (1, 1), ( 1, 2), (2, 1);
 
 Insert into ADRESSE (CODE_POSTAL, NUMERO, RUE, VILLE) values (6666,'2a','Rue test de test', 'TestCitty');
 
-Insert into Rencontre ( DATE, Description, Nbr_Participant_Limite, Temp_De_Jeu, Titre, Adresse_id, Utilisateur_crea_id ) values ('2018-09-24', 'TestTestTestTestTest', 15, 160, 'Test', 1,1);
+Insert into Rencontre ( DATE, Description, Nbr_Participant_Limite, Temps_De_Jeu, Titre, Adresse_id, Utilisateur_crea_id ) values ('2018-09-24', 'TestTestTestTestTest', 15, 160, 'Test', 1,1);

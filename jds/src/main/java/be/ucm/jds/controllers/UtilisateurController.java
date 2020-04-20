@@ -35,9 +35,13 @@ public class UtilisateurController {
 
     @PostMapping("/modifierUtilisateur")
     public void modifierUtilisateur(@RequestBody Utilisateur utilisateur) {
+        System.out.println(utilisateur.toString());
+        System.out.println(utilisateur.getId().toString());
         UtilisateurDAL utilisateurDAL = utilisateurDAO.findById(utilisateur.getId()).orElse(null);
         if (utilisateurDAL != null){
             utilisateurDAO.save( UtilisateurMapperDAL.utilisateur_to_utilisateurDAL_upDate(utilisateur,utilisateurDAL) );
+        }else {
+            System.out.println("no");
         }
     }
 

@@ -35,7 +35,7 @@ public class UtilisateurDAL {
     @OneToOne(cascade = CascadeType.ALL)
     private PhotoDAL photo;
 
-    @ManyToMany(cascade = CascadeType.MERGE)
+    @ManyToMany(cascade = {CascadeType.MERGE,CascadeType.REFRESH})
     private List<JeuDAL> jeuPreferes;
 
     @ManyToMany(cascade = CascadeType.ALL)

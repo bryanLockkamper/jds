@@ -4,6 +4,8 @@ import be.ucm.jds.BL.Entity.*;
 import be.ucm.jds.DAL.Entity.*;
 import org.modelmapper.ModelMapper;
 
+import java.util.stream.Collectors;
+
 public class UtilisateurMapperDAL {
     public static Utilisateur utilisateurDAL_To_Utilisateur(UtilisateurDAL utilisateurDAL) {
         return new ModelMapper().map(utilisateurDAL, Utilisateur.class);
@@ -26,6 +28,7 @@ public class UtilisateurMapperDAL {
         utilisateurDAL.setPrenom(utilisateur.getPrenom());
         utilisateurDAL.setNumero(utilisateur.getNumero());
         utilisateurDAL.setDescription(utilisateur.getDescription());
+        utilisateurDAL.setJeuPreferes(utilisateur.getJeuPreferes().stream().map(JeuMapperDAL::jeu_To_JeuDAL).collect(Collectors.toList()));
         return utilisateurDAL;
     }
 }
