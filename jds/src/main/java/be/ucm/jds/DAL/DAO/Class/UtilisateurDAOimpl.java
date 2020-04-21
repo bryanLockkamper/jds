@@ -28,7 +28,7 @@ public class UtilisateurDAOimpl {
         return utilisateurDAO.findAll();
     }
 
-    public List<UtilisateurDAL> findByEmail(String email){
+    public Optional<UtilisateurDAL> findByEmail(String email){
         return utilisateurDAO.findByEmail(email);
     }
 
