@@ -13,5 +13,4 @@ import java.util.Optional;
 public interface RoleDAO extends JpaRepository<RoleDAL, Long> {
 
     Optional<RoleDAL> findById(Long id);
-    List<Optional<RoleDAL>> getAll();
 }

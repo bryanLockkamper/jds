@@ -1,7 +1,7 @@
 package be.ucm.jds.controllers;
 
 import be.ucm.jds.BL.Entity.*;
-import be.ucm.jds.DAL.DAO.Class.RoleDAOImpl;
+import be.ucm.jds.DAL.DAO.Class.RoleDAOimpl;
 import be.ucm.jds.DAL.DAO.Class.UtilisateurDAOimpl;
 import be.ucm.jds.DAL.Entity.JeuDAL;
 import be.ucm.jds.DAL.Entity.RoleDAL;
@@ -21,10 +21,10 @@ import java.util.stream.Collectors;
 public class UtilisateurController {
 
     UtilisateurDAOimpl utilisateurDAO;
-    RoleDAOImpl roleDAO;
+    RoleDAOimpl roleDAO;
 
     @Autowired
-    public UtilisateurController(UtilisateurDAOimpl utilisateurDAO, RoleDAOImpl roleDAO) {
+    public UtilisateurController(UtilisateurDAOimpl utilisateurDAO, RoleDAOimpl roleDAO) {
         this.utilisateurDAO = utilisateurDAO;
         this.roleDAO = roleDAO;
     }
