@@ -1,4 +1,4 @@
-Insert into Utilisateur (date_naissance, description, email, genre, nom, numero, password, prenom, pseudo) values ('1992-11-09', 'tototototo' , 'test@gmail.com', 'M', 'Test','0000001', 'Test1234=', 'Alex', 'Test');
+Insert into Utilisateur (date_naissance, description, email, genre, nom, numero, password, prenom, pseudo) values ('1992-11-09', 'tototototo' , 'test@gmail.com', 'M', 'Test','0000001', '$2a$10$Hmsr.LL4EyEYQF/zjXubn.SLeRXKTjo9DtAi0PRyzhhtA5jmshnDS', 'Alex', 'Test');
 
 Insert into Genre (Description, Titre) Values ('Test1 Descrition', 'Test1') , ('Test2 Description', 'Test2');
 

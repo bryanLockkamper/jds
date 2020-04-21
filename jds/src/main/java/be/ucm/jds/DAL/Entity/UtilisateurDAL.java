@@ -1,9 +1,12 @@
 package be.ucm.jds.DAL.Entity;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 
 @NoArgsConstructor
@@ -13,7 +16,7 @@ import java.util.List;
 @Setter
 @Getter
 @Entity(name = "Utilisateur")
-public class UtilisateurDAL {
+public class UtilisateurDAL implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -49,4 +52,34 @@ public class UtilisateurDAL {
 
     @ManyToMany(mappedBy = "utilisateurDALList")
     private List<RoleDAL> roles;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }
