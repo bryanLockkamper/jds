@@ -3,7 +3,6 @@ package be.ucm.jds.DAL.mappers;
 import be.ucm.jds.BL.Entity.Role;
 import be.ucm.jds.DAL.Entity.RoleDAL;
 import org.modelmapper.ModelMapper;
-import org.springframework.ui.ModelMap;
 
 public class RoleMapperDAL {
 
