@@ -5,6 +5,8 @@ import be.ucm.jds.DAL.DAO.Class.GenreDAOimpl;
 import be.ucm.jds.DAL.DAO.Interface.GenreDAO;
 import be.ucm.jds.DAL.mappers.GenreMapperDAL;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,8 +42,9 @@ public class GenreController {
     }
 
     @PostMapping("/supprimerGenre")
-    public void supprimerGenre(@RequestBody Genre genre) {
+    public ResponseEntity<HttpStatus> supprimerGenre(@RequestBody Genre genre) {
         genreDAO.deleteById(genre.getId());
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @GetMapping("genre/{id}")

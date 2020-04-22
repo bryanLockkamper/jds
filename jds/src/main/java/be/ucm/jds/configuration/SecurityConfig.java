@@ -9,7 +9,13 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.Arrays;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -32,7 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http.cors()
+                .and()
+                .csrf().disable()
                 .exceptionHandling()
                 .and()
                 //.formLogin()
@@ -42,35 +50,35 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .failureHandler(new SimpleUrlAuthenticationFailureHandler())
 //                .and()
 //                .logout()
-//                .logoutUrl("/logout")
+//                .logoutUrl("/seDeconnecter")
 //                .invalidateHttpSession(true)
-                //.and()
-
+//                .and()
                 .authorizeRequests()
+//                .antMatchers("").permitAll()
+                .antMatchers("/creerGenre").hasRole("ADMIN")
+                .antMatchers("/supprimerGenre").hasRole("ADMIN")
+                .antMatchers("/modifierGenre").hasRole("ADMIN")
+                .antMatchers("/rencontres").authenticated()
                 .anyRequest()
-                .permitAll();
-
-                //.antMatchers("").permitAll()
-//                .antMatchers("/product/new").authenticated()
-//                .antMatchers("/product").permitAll()
+                .permitAll()
                 // ATTENTION !!! en DB, le role devra se nommer 'ROLE_ADMIN'
                 // ATTENTION !!! mettre ce antMatcher là après les deux du dessus
                 // sinon on y aura pas accès !!!
                 //.antMatchers("/product/**").hasRole("ADMIN")
 
 
-                /*.and()
+                .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 // POUR AVOIR ACCES A LA CONSOLE H2
-                .headers().frameOptions().disable()
-                .and()
+//                .headers().frameOptions().disable()
+//                .and()
                 //@formatter:on
                 .apply(new JwtConfigurer(jwtTokenProvider))
                 .and()
                 .httpBasic()
-                .disable();*/
+                .disable();
 
     }
 
@@ -78,4 +86,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(utilisateurService).passwordEncoder(passwordEncoder);
     }
+
+//    @Bean
+//    CorsConfigurationSource corsConfigurationSource()
+//    {
+//        CorsConfiguration configuration = new CorsConfiguration();
+//        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+//        configuration.setAllowedMethods(Arrays.asList("GET","POST"));
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**", configuration);
+//        return source;
+//    }
 }

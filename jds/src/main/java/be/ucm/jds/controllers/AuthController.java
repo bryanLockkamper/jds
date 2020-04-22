@@ -18,10 +18,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -30,6 +27,7 @@ import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/auth")
 public class AuthController {
 
 
@@ -49,7 +47,7 @@ public class AuthController {
     }
 
     @ApiOperation(value = "Appelé a chaque fois qu'un joueur veut se connecter")
-    @PostMapping("/seConnecter")
+    @PostMapping("/sign-in")
     public ResponseEntity signin(@RequestBody UtilisateurLogin data)
     {
         try {
@@ -66,8 +64,8 @@ public class AuthController {
         }
     }
 
-    @ApiOperation(value = "Appelé a chaque fois qu'un joueur voudrat s'enregistrer")
-    @PostMapping("/inscription")
+    @ApiOperation(value = "Appelé a chaque fois qu'un joueur voudra s'enregistrer")
+    @PostMapping("/sign-up")
     public ResponseEntity<String> register(@RequestBody UtilisateurRegister playerDTO) {
 
         playerDTO.setPassword(hashConfig.getPasswordEncoder().encode(playerDTO.getPassword()));
@@ -77,19 +75,8 @@ public class AuthController {
         return ResponseEntity.ok("200");
     }
 
-    /*@PostMapping("/seConnecter")
-    public ResponseEntity<Utilisateur> seConnecter(@RequestBody UtilisateurLogin utilisateur) {
-        UtilisateurDAL utilisateurDAL = (UtilisateurDAL) utilisateurDAOimpl.findByEmail(utilisateur.getEmail());
-        System.out.println(utilisateur);
-        if (utilisateurDAL != null) {
 
-            if (verifierMdp(utilisateur.getPassword()))
-                return ResponseEntity.ok(UtilisateurMapperDAL.utilisateurDAL_To_Utilisateur(utilisateurDAL));
-        }
-        return ResponseEntity.notFound().build();
-    }
-
-    @PostMapping("/seDeconnecter")
+    @PostMapping("/sign-out")
     public void seDeconnecter(@RequestBody Utilisateur utilisateur) {
         //jeuDAL.save(jeu);
         System.out.println(utilisateur);
@@ -100,7 +87,7 @@ public class AuthController {
         //jeuDAL.save(jeu);
         System.out.println(id);
     }
-
+/*
     @PostMapping("/inscription")
     public ResponseEntity<Utilisateur> inscription(@RequestBody UtilisateurRegister utilisateur) {
         if (utilisateurDAOimpl.findByEmail(utilisateur.getEmail()) == null

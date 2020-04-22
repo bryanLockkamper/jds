@@ -50,12 +50,12 @@ public class UtilisateurDAL implements UserDetails {
     @OneToMany(mappedBy = "utilisateurCrea")
     private List<RencontreDAL> rencontreCreaList;
 
-    @ManyToMany(mappedBy = "utilisateurDALList")
+    @ManyToMany(mappedBy = "utilisateurDALList", fetch = FetchType.EAGER)
     private List<RoleDAL> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return roles;
     }
 
     @Override

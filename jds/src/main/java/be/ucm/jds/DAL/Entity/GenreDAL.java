@@ -23,7 +23,7 @@ public class GenreDAL {
     private String titre;
     private String description;
 
-    @ManyToMany(mappedBy = "genres")
+    @ManyToMany(mappedBy = "genres", cascade = {CascadeType.REFRESH, CascadeType.MERGE, CascadeType.REMOVE})
     private List<JeuDAL> jeuList;
 
     public GenreDAL(Long id, String titre, String desc) {
