@@ -11,11 +11,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import java.util.Arrays;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -43,38 +38,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .exceptionHandling()
                 .and()
-                //.formLogin()
-                //.loginPage("/login") // custom login page
-                //.loginProcessingUrl("/login") // url to submit the username and password to
-                // on peut avoir en + : defaultSuccessUrl()  &  failureUrl
-//                .failureHandler(new SimpleUrlAuthenticationFailureHandler())
-//                .and()
-//                .logout()
-//                .logoutUrl("/seDeconnecter")
-//                .invalidateHttpSession(true)
-//                .and()
                 .authorizeRequests()
-//                .antMatchers("").permitAll()
                 .antMatchers("/creerGenre").hasRole("ADMIN")
                 .antMatchers("/supprimerGenre").hasRole("ADMIN")
                 .antMatchers("/modifierGenre").hasRole("ADMIN")
+                .antMatchers("/genre/**").authenticated()
+                .antMatchers("/genres").authenticated()
+                .antMatchers("/creerJeu").hasRole("ADMIN")
+                .antMatchers("/supprimerJeu").hasRole("ADMIN")
+                .antMatchers("/modifierJeu").hasRole("ADMIN")
+                .antMatchers("/jeux").authenticated()
+                .antMatchers("/jeu/**").authenticated()
+                .antMatchers("/creerRencontre").hasRole("ADMIN")
+                .antMatchers("/supprimerRencontre").hasRole("ADMIN")
+                .antMatchers("/modifierRencontre").hasRole("ADMIN")
+                .antMatchers("/rencontre/**").authenticated()
                 .antMatchers("/rencontres").authenticated()
+                .antMatchers("/actualRencontres").authenticated()
                 .anyRequest()
                 .permitAll()
-                // ATTENTION !!! en DB, le role devra se nommer 'ROLE_ADMIN'
-                // ATTENTION !!! mettre ce antMatcher là après les deux du dessus
-                // sinon on y aura pas accès !!!
-                //.antMatchers("/product/**").hasRole("ADMIN")
-
-
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                // POUR AVOIR ACCES A LA CONSOLE H2
-//                .headers().frameOptions().disable()
-//                .and()
-                //@formatter:on
                 .apply(new JwtConfigurer(jwtTokenProvider))
                 .and()
                 .httpBasic()
