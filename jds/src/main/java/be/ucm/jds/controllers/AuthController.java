@@ -38,6 +38,7 @@ public class AuthController {
     private JwtTokenProvider jwtTokenProvider;
 
     private HashConfig hashConfig;
+    private boolean bol;
 
     public AuthController(UtilisateurDAOimpl utilisateurDAOimpl, AuthenticationManager authenticationManager, JwtTokenProvider jwtTokenProvider, HashConfig hashConfig) {
         this.utilisateurDAOimpl = utilisateurDAOimpl;
