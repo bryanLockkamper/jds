@@ -1,23 +1,19 @@
 package be.ucm.jds.BL.Entity.websocket;
 
+
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+
+@RestController
 public class WebSocketChatController {
-    @MessageMapping("/chat.sendMessage")
-    @SendTo("/topic/initial")
+
+    @MessageMapping("/send/message")
+    @SendTo("/chat")
     public WebSocketChatMessage sendMessage(@Payload WebSocketChatMessage webSocketChatMessage) {
-        return webSocketChatMessage;
-    }
-    @MessageMapping("/chat.newUser")
-    @SendTo("/topic/javainuse")
-    public WebSocketChatMessage newUser(@Payload WebSocketChatMessage webSocketChatMessage,
-                                        SimpMessageHeaderAccessor headerAccessor) {
-        headerAccessor.getSessionAttributes().put("username", webSocketChatMessage.getSender());
+        System.out.println(webSocketChatMessage.getContent());
         return webSocketChatMessage;
     }
 }

@@ -1,31 +1,34 @@
 package be.ucm.jds.BL.Entity.websocket;
 
-public class WebSocketChatMessage {
-    private String type;
-    private String content;
+import be.ucm.jds.BL.Entity.Utilisateur;
+import lombok.*;
+
+import java.io.File;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
+public class WebSocketChatMessage implements Serializable {
     private String sender;
+    private String content;
+    private MessageType type;
+    private LocalDateTime date;
+    private Boolean reply;
+//    private File files;
+    private Utilisateur user;
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
+    public WebSocketChatMessage(String content) {
         this.content = content;
     }
 
-    public String getSender() {
-        return sender;
-    }
-
-    public void setSender(String sender) {
-        this.sender = sender;
+    public enum MessageType {
+        CHAT,
+        JOIN,
+        LEAVE
     }
 }
