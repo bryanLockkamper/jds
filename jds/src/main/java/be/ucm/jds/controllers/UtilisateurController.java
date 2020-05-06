@@ -62,6 +62,11 @@ public class UtilisateurController {
         return UtilisateurMapperDAL.utilisateurDAL_To_Utilisateur(Objects.requireNonNull(utilisateurDAO.findById(id).orElse(null)));
     }
 
+    @GetMapping("utilisateur/{id}/groupes")
+    public List<Groupe> getGroupesUtilisateur(@PathVariable Long id) {
+        return UtilisateurMapperDAL.utilisateurDAL_To_Utilisateur(Objects.requireNonNull(utilisateurDAO.findById(id).orElse(null))).getGroupes();
+    }
+
     @GetMapping("utilisateurs")
     public List<Utilisateur> getAllUtilisateur() {
         return utilisateurDAO.findAll()

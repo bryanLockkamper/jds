@@ -23,6 +23,6 @@ public class Rencontre {
     private String description;
     private Photo photo;
     private List<Jeu> jeuList;
-    private Utilisateur utilisateurCrea;
+    private Groupe groupeCrea;
     List<Utilisateur> utilisateurAffList;
 }

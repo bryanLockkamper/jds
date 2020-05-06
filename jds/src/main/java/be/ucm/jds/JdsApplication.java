@@ -14,5 +14,4 @@ public class JdsApplication {
     public static void main(String[] args) {
         SpringApplication.run(JdsApplication.class, args);
     }
-
 }

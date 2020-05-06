@@ -25,4 +25,5 @@ public class UtilisateurRegister {
     private String description;
     private String numero;
     private List<Adresse> adresse;
+    private List<Groupe> groupes;
 }

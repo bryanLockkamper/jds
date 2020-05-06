@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Lock;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
@@ -14,7 +15,7 @@ public interface RencontreDAO extends JpaRepository<RencontreDAL, Long> {
 
     List<RencontreDAL> findByTitre(String titre);
 
-    List<RencontreDAL> findByDate(LocalDate date);
+    List<RencontreDAL> findByDate(LocalDateTime date);
 
     List<RencontreDAL> findByTempsDeJeu(Integer tempDeJeu);
 
@@ -22,11 +23,11 @@ public interface RencontreDAO extends JpaRepository<RencontreDAL, Long> {
 
     List<RencontreDAL> findByUtilisateurAffList(Long utilisateurAffListId);
 
-    List<RencontreDAL> findByUtilisateurCrea(Long utilisateurCrea);
+    List<RencontreDAL> findByGroupeCrea(Long utilisateurCrea);
 
     List<RencontreDAL> findByJeuList(Long idJeu);
 
 
 
-    void deleteByUtilisateurCrea(Long utilisateurCrea);
+    void deleteByGroupeCrea(Long utilisateurCrea);
 }

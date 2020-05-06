@@ -11,7 +11,6 @@ import be.ucm.jds.DAL.mappers.UtilisateurMapperDAL;
 import be.ucm.jds.configuration.HashConfig;
 import be.ucm.jds.configuration.JwtTokenProvider;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -27,7 +26,6 @@ import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/auth")
 public class AuthController {
 
 
@@ -48,7 +46,7 @@ public class AuthController {
     }
 
     @ApiOperation(value = "Appelé a chaque fois qu'un joueur veut se connecter")
-    @PostMapping("/sign-in")
+    @PostMapping("/seConnecter")
     public ResponseEntity signin(@RequestBody UtilisateurLogin data)
     {
         try {
@@ -66,42 +64,29 @@ public class AuthController {
     }
 
     @ApiOperation(value = "Appelé a chaque fois qu'un joueur voudra s'enregistrer")
-    @PostMapping("/sign-up")
-    public ResponseEntity<String> register(@RequestBody UtilisateurRegister playerDTO) {
+    @PostMapping("/inscription")
+    public ResponseEntity<String> register(@RequestBody UtilisateurRegister utilisateurRegister) {
 
-        playerDTO.setPassword(hashConfig.getPasswordEncoder().encode(playerDTO.getPassword()));
-        UtilisateurDAL playerEntity = UtilisateurMapperDAL.utilisateurRegister_To_UtilisateurDAL(playerDTO);
-        utilisateurDAOimpl.save(playerEntity);
+        if (!utilisateurDAOimpl.findByEmail(utilisateurRegister.getEmail()).isPresent()
+                && utilisateurRegister.getPassword().equals(utilisateurRegister.getConfirmpassword())
+                && LocalDate.now().minusYears(18).isAfter(utilisateurRegister.getDateNaissance())) {
 
-        return ResponseEntity.ok("200");
-    }
+            if (verifierMdp(utilisateurRegister.getPassword())) {
+                utilisateurRegister.setPassword(hashConfig.getPasswordEncoder().encode(utilisateurRegister.getPassword()));
+                UtilisateurDAL playerEntity = UtilisateurMapperDAL.utilisateurRegister_To_UtilisateurDAL(utilisateurRegister);
+                utilisateurDAOimpl.save(playerEntity);
 
-
-    @PostMapping("/sign-out")
-    public void seDeconnecter(@RequestBody Utilisateur utilisateur) {
-        //jeuDAL.save(jeu);
-        System.out.println(utilisateur);
+                return ResponseEntity.ok("200");
+            }
+            return ResponseEntity.ok("Mot de passe invalide!");
+        }
+        return ResponseEntity.ok("Email déjà existant!");
     }
 
     @PostMapping("/rafraichirToken")
     public void rafraichirToken(@RequestBody Long id) {
-        //jeuDAL.save(jeu);
         System.out.println(id);
     }
-/*
-    @PostMapping("/inscription")
-    public ResponseEntity<Utilisateur> inscription(@RequestBody UtilisateurRegister utilisateur) {
-        if (utilisateurDAOimpl.findByEmail(utilisateur.getEmail()) == null
-                && utilisateur.getPassword().equals(utilisateur.getConfirmpassword())
-                && LocalDate.now().minusYears(18).isAfter(utilisateur.getDateNaissance())) {
-
-            if (verifierMdp(utilisateur.getPassword()))
-                return ResponseEntity.ok(UtilisateurMapperDAL.utilisateurDAL_To_Utilisateur(utilisateurDAOimpl.save(UtilisateurMapperDAL.utilisateurRegister_To_UtilisateurDAL(utilisateur))));
-
-
-        }
-        return ResponseEntity.notFound().build();
-    }*/
 
     private boolean verifierMdp(String mdp) {
         boolean containsMajuscule = false;

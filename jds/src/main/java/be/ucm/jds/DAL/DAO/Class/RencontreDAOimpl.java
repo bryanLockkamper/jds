@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,7 +49,7 @@ public class RencontreDAOimpl {
 
     public Boolean deleteByIdUtilisateur(Long idUtilisateur) {
         try {
-            rencontreDAO.deleteByUtilisateurCrea(idUtilisateur);
+            rencontreDAO.deleteByGroupeCrea(idUtilisateur);
             return true;
         } catch (Exception e) {
             return false;
@@ -59,7 +60,7 @@ public class RencontreDAOimpl {
         return rencontreDAO.findByTitre(titre);
     }
 
-    public List<RencontreDAL> findByDate(LocalDate date) {
+    public List<RencontreDAL> findByDate(LocalDateTime date) {
         return rencontreDAO.findByDate(date);
     }
 
@@ -72,7 +73,7 @@ public class RencontreDAOimpl {
     }
 
     public List<RencontreDAL> findByUtilisateur(Long id) {
-        return rencontreDAO.findByUtilisateurCrea(id);
+        return rencontreDAO.findByGroupeCrea(id);
     }
 
     public List<RencontreDAL> findByUtlisateurList(Long idUtilisateurParticipants) {

@@ -1,8 +1,10 @@
 package be.ucm.jds.controllers;
 
+import be.ucm.jds.BL.Entity.Groupe;
 import be.ucm.jds.BL.Entity.Rencontre;
 import be.ucm.jds.DAL.DAO.Class.RencontreDAOimpl;
 import be.ucm.jds.DAL.DAO.Class.UtilisateurDAOimpl;
+import be.ucm.jds.DAL.Entity.GroupeDAL;
 import be.ucm.jds.DAL.Entity.RencontreDAL;
 import be.ucm.jds.DAL.mappers.RencontreMapperDAL;
 import org.springframework.beans.factory.annotation.Autowired;

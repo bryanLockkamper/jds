@@ -64,10 +64,6 @@ public class UtilisateurDAOimpl {
         return utilisateurDAO.findByRencontreAffList(rencontreDALList);
     }
 
-    public Optional<UtilisateurDAL> findByRencontreCreaList(RencontreDAL rencontreDALList){
-        return utilisateurDAO.findByRencontreCreaList(rencontreDALList);
-    }
-
     public List<UtilisateurDAL> findByPseudoAndNom(String pseudo,String nom){
         return utilisateurDAO.findByPseudoAndNom(pseudo,nom);
     }

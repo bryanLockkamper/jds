@@ -32,8 +32,6 @@ public interface UtilisateurDAO extends JpaRepository<UtilisateurDAL, Long> {
 
     List<UtilisateurDAL> findByRencontreAffList(RencontreDAL rencontreDAL);
 
-    Optional<UtilisateurDAL> findByRencontreCreaList(RencontreDAL rencontreDAL);
-
     List<UtilisateurDAL> findByPseudoAndNom(String pseudo,String nom);
 
     List<UtilisateurDAL> findByPseudoAndNumero(String pseudo,String numTel);
@@ -75,7 +73,7 @@ public interface UtilisateurDAO extends JpaRepository<UtilisateurDAL, Long> {
     void saveNumero(Long idUtilisateur,String numero);
 
     @Modifying
-    @Query("UPDATE Utilisateur SET mdp = :mdp WHERE id = :idUtilisateur ")
+    @Query("UPDATE Utilisateur SET password = :mdp WHERE id = :idUtilisateur ")
     void saveMdp(Long idUtilisateur,String mdp);
 
     @Modifying

@@ -1,6 +1,7 @@
 package be.ucm.jds.BL.Entity;
 
 import lombok.*;
+import sun.java2d.windows.GDIRenderer;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -25,4 +26,5 @@ public class Utilisateur {
     private List<Adresse> adresseList;
     private Photo photo;
     private List<Role> roles;
+    private List<Groupe> groupes;
 }

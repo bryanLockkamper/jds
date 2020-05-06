@@ -34,7 +34,7 @@ public class RencontreDAL {
     private AdresseDAL adresse;
 
     @ManyToOne
-    private UtilisateurDAL utilisateurCrea;
+    private GroupeDAL groupeCrea;
 
     @ManyToMany
     private List<UtilisateurDAL> utilisateurAffList;

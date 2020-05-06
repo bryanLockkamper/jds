@@ -9,7 +9,8 @@ public class VerificateurCreationRencontre {
                 && rencontre.getDate() != null
                 && rencontre.getTempsDeJeu() > 0
                 && rencontre.getNbrParticipantLimite() > 0
-                && rencontre.getJeuList().size() > 0
-                && rencontre.getUtilisateurCrea().getId() > 0;
+                && rencontre.getJeuList().size() > 0;
+        // TODO: 30/04/2020 changer en groupeCrea
+//                && rencontre.getUtilisateurCrea().getId() > 0;
     }
 }

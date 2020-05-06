@@ -47,11 +47,11 @@ public class UtilisateurDAL implements UserDetails {
     @ManyToMany(mappedBy = "utilisateurAffList")
     private List<RencontreDAL> rencontreAffList;
 
-    @OneToMany(mappedBy = "utilisateurCrea")
-    private List<RencontreDAL> rencontreCreaList;
-
     @ManyToMany(mappedBy = "utilisateurDALList", fetch = FetchType.EAGER)
     private List<RoleDAL> roles;
+
+    @ManyToMany(cascade = {CascadeType.MERGE,CascadeType.REFRESH})
+    private List<GroupeDAL> groupes;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
