@@ -13,7 +13,6 @@ public class WebSocketChatController {
     @MessageMapping("/send/message")
     @SendTo("/chat")
     public WebSocketChatMessage sendMessage(@Payload WebSocketChatMessage webSocketChatMessage) {
-        System.out.println(webSocketChatMessage.getContent());
         return webSocketChatMessage;
     }
 }

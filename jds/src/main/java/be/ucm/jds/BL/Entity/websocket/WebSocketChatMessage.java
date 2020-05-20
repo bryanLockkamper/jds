@@ -3,7 +3,6 @@ package be.ucm.jds.BL.Entity.websocket;
 import be.ucm.jds.BL.Entity.Utilisateur;
 import lombok.*;
 
-import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
